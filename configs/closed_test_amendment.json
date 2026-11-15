@@ -1,0 +1,80 @@
+{
+ "name": "stage6_closed_test_amendment",
+ "status": "APPROVED",
+ "proposed_by": "the analysis team, after an independent review of the closed-test design",
+ "approved_by": "the author",
+ "approved_at": "2026-11-15 11:44 KST",
+ "rule": "closed_test.py refuses to take the lock unless this file is committed with status APPROVED, approved_by and approved_at set. It says how the pre-stated lines are READ on the held-out episode; nothing here changes protocol_eval_v2, its amendments or the stage-0 pass lines.",
+ "scope": "Kalimantan 2015 episode packs (night 697 tiles, day 802 tiles), scored ONCE for ONE candidate fixed by sha256 in configs/closed_test_candidates.json. REPORT (nf2) is a separate target with its own lock and is not changed by this amendment.",
+ "unit_of_analysis": "scene pairs (one id per overpass pair, eval_pair_id) replace episodes: the 2015 packs carry no eval_episode / eval_region, so there is no region-balanced mean and no episode clustering. Wherever the stage-0 text says 'positive in >= 75 % of qualifying episodes' read 'qualifying pairs'; ranges are pair-clustered bootstrap ranges (4,000 resamples).",
+ "primary_pack": "NIGHT. The model is night-trained and the night rule applies. The DAY pack is EXPLORATORY: numbers are shown, no pass/fail is assigned (night-trained model on day scenes).",
+ "measures_and_lines_on_the_night_pack": {
+  "1_fire_block_score": {
+   "comparator": "the BETTER (higher mean block AUC) of 'spread evenly' and 'excess-only even spread' on the same pack",
+   "fire_off_rule": "model block AUC minus model-with-fire-off AUC must be > 0 (point estimate, same pairs)",
+   "pass": "AUC difference to the comparator >= 0.05 AND its pair-clustered 95 % range above 0 AND positive in >= 75 % of qualifying pairs AND fire-off rule met",
+   "testable_if": ">= 3 qualifying pairs",
+   "version": "'all blocks' decides; the hole-free (near2) numbers are printed next to it and never decide"
+  },
+  "2_amount": {
+   "comparator": "EVERY simple method: spread evenly, Planck copy, raw copy, excess-only/true background + spread, constant",
+   "pass": "pooled ratio of sums (predicted/measured excess) at the 3 km scale in 0.8-1.25 AND the amendment-4 decision line 'delivers' (mean |log-error| per pair smaller than every simple method, range above zero, >= 75 % of pairs) at the pixel scale AND at the 3 km scale",
+   "testable_if": ">= 3 testable pairs at both scales; a 3 km ratio outside the band is a FAIL even when the decision line is not testable"
+  },
+  "3_hottest_cell_share": {
+   "comparator": "fixed line 0.33 (halfway between spread evenly about 0.14 and measured about 0.52); the spread-evenly and measured values from the same pack are printed beside it",
+   "pass": "model top-1 share >= 0.33",
+   "testable_if": ">= 30 MODIS-selected pixels with >= 3 cells"
+  },
+  "4_flag_count": {
+   "comparator": "the same flagging rule applied to the measured VIIRS (flagged-cell count ratio = predicted / measured)",
+   "pass": "count ratio in 0.5-2.0 AND block hit rate >= 0.5; false-alarm share reported, no line",
+   "testable_if": ">= 30 flagged cells in the measured VIIRS view"
+  },
+  "overall": "FAIL if ANY testable line fails (even when other lines are not testable); PASS only if all four lines are testable and pass; NOT_DECIDABLE only when no testable line fails and at least one line is not testable. The day pack prints the same lines with no overall verdict (EXPLORATORY_NO_VERDICT)."
+ },
+ "not_computable_on_these_packs": [
+  "far-from-train subset (no eval_far_km): not reported; replaced by the leak check (0 nf2 tiles inside the Kalimantan window + 60 km, independent review 15 Nov)",
+  "region-balanced mean and episode clustering (no eval_region / eval_episode)"
+ ],
+ "testability": "a line needs >= 3 qualifying pairs (>= 10 fire blocks and >= 100 other blocks per pair for the AUC; >= 10 items per pair for the amount); with fewer it is printed as 'not testable', never pass/fail. The night pack holds about 5 scenes, so this is expected to bind.",
+ "descriptive_only": [
+  "day pack results",
+  "strata / breakdowns (fire size, scan angle)",
+  "calibration curve",
+  "simple-method numbers (spread evenly, Planck copy, raw copy, true background + spread, constant): always shown next to the model",
+  "hole-free (near2) variants"
+ ],
+ "few_scene_uncertainty_statement": "the report must print, next to every number, the number of scene pairs and items behind it, and state that pair-clustered ranges from fewer than 10 pairs are unreliable, that one episode is one case study (no claim of generality), and that the result is published whatever it is.",
+ "no_selection": "the candidate is fixed by sha256 before the lock; one run per target; the only retry allowed is after a failure BEFORE any score was produced (--retry-of, logged); a re-run after a score exists is refused by the script and would be a new protocol decision.",
+ "shuffled_pair_control": "NOT part of this closed test (score_run.py and closed_test.py do not implement it; it was a sweep-1 diagnostic). the author may declare it part of the test, in which case it must be implemented and rehearsed first.",
+ "multi_candidate_alternative": "scoring more than ONE frozen candidate on the episode would make the episode a selection set (the best of k candidates would be reported): not implemented, a protocol decision for the author. If he wants it: list all candidate shas in the candidates file, state that the headline number is the PRE-DECLARED candidate and the others are descriptive, and the script's per-target lock must be changed to one lock per candidate with an index.",
+ "proposed_revision": "r3 (Sun 15 Nov ~08:50 KST): minimum counts for the hottest-cell and flag lines set to 30 (the author's decision 2, 08:42: 'about 30'); the reader takes ALL its thresholds and minimum counts from the reader_constants block of THIS file (single source of truth, hash recorded); r2 items kept (comparators, fire-off rule, reader, FAIL never hidden, why_this_candidate).",
+ "reader": {
+  "script": "scripts/closed_test_reader.py",
+  "what": "turns the score_val2all.json files into the four lines and the overall verdict; deterministic (no randomness, no tunable value: all thresholds are constants of the file); tested on synthetic score files (tests/raw/test_closed_test_reader.py); closed_test.py runs it as its LAST step on the night pack (decides) and the day pack (--exploratory) and records its sha256 in closed_test_record.json; it is part of the files hashed against HEAD before the lock. Thresholds and minimum counts come from reader_constants in this file."
+ },
+ "minimum_counts_summary": {
+  "lines_1_2": ">= 3 qualifying pairs (>= 10 fire blocks and >= 100 other blocks per pair for the AUC; >= 10 items per pair for the amount)",
+  "line_3": ">= 30 MODIS-selected pixels with >= 3 cells",
+  "line_4": ">= 30 flagged cells in the measured VIIRS view"
+ },
+ "why_this_candidate": {
+  "rule": "closed_test_candidates.json must carry, BEFORE the lock, a why_this_candidate block for the chosen candidate with three non-empty entries: pre_stated_lines_met_on_SELECT (which of the five pre-stated lines on the full SELECT set, both seeds), seeds (how many seeds of the same setting were scored and what they showed), known_weaknesses (e.g. block ranking below the even spread, seed disagreement). The script refuses without it. It is a record of the reasoning at freeze time, not a tuning knob."
+ },
+ "reader_constants": {
+  "min_pairs_lines_1_2": 3,
+  "min_pixels_line_3": 30,
+  "min_flagged_measured_line_4": 30,
+  "auc_margin_line_1": 0.05,
+  "auc_share_positive_pairs_line_1": 0.75,
+  "ratio_lo_line_2": 0.8,
+  "ratio_hi_line_2": 1.25,
+  "top1_share_line_3": 0.33,
+  "flag_ratio_lo_line_4": 0.5,
+  "flag_ratio_hi_line_4": 2.0,
+  "hit_rate_line_4": 0.5,
+  "_note": "closed_test_reader.py reads these values at run time; the record stores the sha256 of this file and of the reader. Changing a value after seeing results is impossible by construction: the file is committed and approved BEFORE the lock and hashed against HEAD."
+ },
+ "cross_data_check": "DROPPED (the author's decision 1, 08:38): the cross-data list was invalid (88 REPORT tiles) and the check no longer exists. The only extra look besides SELECT is the old 9-pair night validation (322 tiles); the 88 listed tiles are retired from REPORT (configs/report_retired.json)."
+}

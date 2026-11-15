@@ -1,0 +1,14 @@
+{
+ "name": "protocol_eval_v2_amendment1",
+ "date": "2026-11-14 (Sat, KST ~21:25), written BEFORE any val2 tile is scored; amends configs/protocol_eval_v2.json (hash ccbb4338cd536bff) after the night-fire tile set was built",
+ "primary_validation": "val2 (114 pairs / 57 fire episodes / 3,743 night tiles, 0 tiles within 60 km of any v3 val/test tile, no episode crossing train/val2) becomes the PRIMARY validation. The old 16-pair night validation (12-15 qualifying pairs) is SECONDARY and marked tuning-contaminated.",
+ "region_balanced_statistic": "the primary number is a REGION-BALANCED mean: AUC per scene pair as in protocol v2 (complete 3x3 blocks, rule truth on measured VIIRS, >= 10 fire / >= 100 other blocks); within a region the mean over EPISODES (pairs of one episode averaged first); then the plain mean over regions with >= 2 qualifying episodes. Regions = the pipeline's region labels (Australia, Borneo, mainland SE Asia, others as labelled in manifest.parquet); a region with fewer than 2 qualifying episodes is listed but not averaged. Australia therefore carries one region's weight, not 95 % of the fire.",
+ "uncertainty": "episode-clustered bootstrap within each region (4,000 resamples), regions fixed; the decision rule of protocol v2 (gain >= 0.05, range above 0, positive in >= 75 % of qualifying EPISODES) applies to the region-balanced difference; every claim states the number of independent episodes (not pairs, not blocks) and per-region results are shown with no pass/fail",
+ "also_report": [
+  "per region and per split: complete 3x3 blocks, fire blocks, fire-level cells (own counters, not the builder's), qualifying episodes",
+  "Southeast Asian regions (Borneo, mainland SE Asia, Sumatra if labelled) separately because the target use is Indonesia",
+  "val2 scored once per setting with the FINAL epoch; no selection on val2"
+ ],
+ "training_switch": "region-balanced sampling (tiles weighted so every region contributes equally per epoch) is an on/off switch; the question answered is whether Australian savanna fires help or hurt the Southeast Asian regions",
+ "status_when_written": "no val2 score computed yet; packing of the final night-fire sets pending (only early/ packs exist and must not be used)"
+}

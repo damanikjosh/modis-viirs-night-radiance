@@ -1,0 +1,32 @@
+{
+ "name": "protocol_eval_v2",
+ "date": "2026-11-14 (Sat, KST evening), written BEFORE any re-scoring; implements the one-page protocol of the independent evaluation review (wiki/reports/review-evaluation.html, )",
+ "claim": "At 3 km (3x3 MODIS pixels, COMPLETE blocks only), night, from MODIS alone: the model ranks blocks that VIIRS shows as fire better than simple methods. Magnitude (energy) is secondary. Day is a separate claim.",
+ "primary": {
+  "blocks": "every complete 3x3 block (all 9 MODIS pixels complete and inside the common mask), one item per MODIS pixel; no block is chosen by the answer",
+  "truth": "block holds >= 1 detection of the documented rule (src/nightrad/raw/rules.py, VIIRS night, config in configs/raw.json) applied to MEASURED VIIRS radiance (never the fire product)",
+  "score": "predicted fire energy of the block = sum over its cells of (predicted VIIRS 4 um radiance - measured VIIRS local-median background)^+",
+  "statistic": "AUC per scene pair, plain mean over scene pairs with >= 10 fire blocks and >= 100 other blocks; also recall at 1 % false-alarm rate",
+  "uncertainty": "pair-clustered bootstrap, 4000 resamples (pairs resampled) of the mean AUC difference; always report the number of qualifying pairs and the share of the largest pair"
+ },
+ "decision_rule": "the model wins against a baseline if the pair-clustered 95 % range of (AUC_model - AUC_baseline) is above zero, the gain is >= 0.05 and it is positive in >= 75 % of qualifying pairs; otherwise 'not detectable'",
+ "baselines": [
+  "spread evenly (MODIS excess spread over its cells, band-converted)",
+  "model with fire (excess) switched off",
+  "Planck-converted copy of MODIS",
+  "raw MODIS copy (raw number, no band conversion)",
+  "oracle background + spread evenly (measured VIIRS background + MODIS excess / factor)",
+  "one constant per block (input-blind; AUC 0.5 by construction; its per-cell error uses the median ln radiance of train fire-level VIIRS cells)"
+ ],
+ "secondary": [
+  "per-cell error |ln(pred/meas)| on selection-free sets: all cells of fire-bearing tiles; cells under bright MODIS pixels; cells where VIIRS is bright - each next to the fire-off control and the input-blind constant",
+  "signed bias on the same sets",
+  "energy ratio (sum predicted excess / sum measured excess) at fire-level VIIRS cells, pooled, M->V: THE admissibility quantity, line 0.8-1.25",
+  "mean and median always together"
+ ],
+ "controls": "shuffled-pair control: the MODIS fields of every tile come from a tile of a DIFFERENT scene pair (same day/night), the same blocks are scored; the model must not beat the baseline (range includes 0), else the evaluation fails",
+ "settings_choice": "NO selection on the validation pairs in sweep 1: checkpoint = FINAL epoch; a setting counts as better than the default only if its per-pair AUC gain over the default is > 2 x the default's seed standard deviation AND its pair-clustered 95 % range excludes 0 AND it is positive in >= 75 % of pairs. Pair-level cross-validation on the training pairs needs a retraining per fold and is not feasible in sweep 1: the 16 validation pairs are marked TUNING-CONTAMINATED (settings were compared on them); a clean confirmation needs new pairs and may be used once.",
+ "halves": "halves A and B of configs/sweep1_halves.json are NOT independent confirmation and are not used by this protocol",
+ "test_split": "closed; the guard (prereg.is_test_split) checks folder name after symlink resolution AND the split field in pack_report.json",
+ "freeze": "this file + code commit + checkpoint hashes; pass lines may only be edited by a visible commit"
+}

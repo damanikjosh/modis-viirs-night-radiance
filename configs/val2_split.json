@@ -1,0 +1,688 @@
+{
+ "rule": [
+  "Deterministic rule (no randomness, no model output, no VIIRS-selected score): within each region episodes are sorted by their total",
+  "measured VIIRS fire-cell count (manifest viirs_fire_cells, a data property of the tiles, not a model score) descending and assigned alternately;",
+  "the first episode of a region with an odd number goes to the side that currently holds fewer fire cells. Writes configs/val2_split.json."
+ ],
+ "select": [
+  "E002",
+  "E013",
+  "E018",
+  "E035",
+  "E041",
+  "E046",
+  "E049",
+  "E050",
+  "E053",
+  "E058",
+  "E067",
+  "E072",
+  "E075",
+  "E081",
+  "E082",
+  "E089",
+  "E091",
+  "E092",
+  "E101",
+  "E103",
+  "E106",
+  "E120",
+  "E121",
+  "E123",
+  "E128",
+  "E130",
+  "E137",
+  "E142",
+  "E146"
+ ],
+ "report": [
+  "E005",
+  "E007",
+  "E014",
+  "E025",
+  "E028",
+  "E032",
+  "E039",
+  "E048",
+  "E057",
+  "E061",
+  "E064",
+  "E077",
+  "E080",
+  "E085",
+  "E095",
+  "E096",
+  "E099",
+  "E100",
+  "E110",
+  "E112",
+  "E122",
+  "E125",
+  "E126",
+  "E127",
+  "E132",
+  "E135",
+  "E143",
+  "E149"
+ ],
+ "per_region": {
+  "Australia": {
+   "select": {
+    "episodes": 5,
+    "pairs": 8,
+    "tiles": 419,
+    "far_tiles": 289,
+    "viirs_fire_cells": 22030
+   },
+   "report": {
+    "episodes": 6,
+    "pairs": 7,
+    "tiles": 354,
+    "far_tiles": 256,
+    "viirs_fire_cells": 26056
+   }
+  },
+  "Borneo": {
+   "select": {
+    "episodes": 1,
+    "pairs": 1,
+    "tiles": 7,
+    "far_tiles": 0,
+    "viirs_fire_cells": 51
+   },
+   "report": {
+    "episodes": 1,
+    "pairs": 1,
+    "tiles": 13,
+    "far_tiles": 2,
+    "viirs_fire_cells": 32
+   }
+  },
+  "Java/Nusa Tenggara/Sulawesi S": {
+   "select": {
+    "episodes": 2,
+    "pairs": 3,
+    "tiles": 40,
+    "far_tiles": 20,
+    "viirs_fire_cells": 165
+   },
+   "report": {
+    "episodes": 1,
+    "pairs": 1,
+    "tiles": 9,
+    "far_tiles": 1,
+    "viirs_fire_cells": 123
+   }
+  },
+  "Mainland SE Asia": {
+   "select": {
+    "episodes": 14,
+    "pairs": 40,
+    "tiles": 1295,
+    "far_tiles": 210,
+    "viirs_fire_cells": 9288
+   },
+   "report": {
+    "episodes": 14,
+    "pairs": 28,
+    "tiles": 751,
+    "far_tiles": 75,
+    "viirs_fire_cells": 5490
+   }
+  },
+  "Other": {
+   "select": {
+    "episodes": 1,
+    "pairs": 1,
+    "tiles": 11,
+    "far_tiles": 1,
+    "viirs_fire_cells": 224
+   },
+   "report": {
+    "episodes": 0,
+    "pairs": 0,
+    "tiles": 0,
+    "far_tiles": 0,
+    "viirs_fire_cells": 0
+   }
+  },
+  "Papua": {
+   "select": {
+    "episodes": 0,
+    "pairs": 0,
+    "tiles": 0,
+    "far_tiles": 0,
+    "viirs_fire_cells": 0
+   },
+   "report": {
+    "episodes": 1,
+    "pairs": 10,
+    "tiles": 324,
+    "far_tiles": 56,
+    "viirs_fire_cells": 3517
+   }
+  },
+  "Philippines": {
+   "select": {
+    "episodes": 1,
+    "pairs": 1,
+    "tiles": 18,
+    "far_tiles": 2,
+    "viirs_fire_cells": 40
+   },
+   "report": {
+    "episodes": 1,
+    "pairs": 1,
+    "tiles": 13,
+    "far_tiles": 5,
+    "viirs_fire_cells": 7
+   }
+  },
+  "Sulawesi/Maluku": {
+   "select": {
+    "episodes": 2,
+    "pairs": 5,
+    "tiles": 152,
+    "far_tiles": 39,
+    "viirs_fire_cells": 1671
+   },
+   "report": {
+    "episodes": 2,
+    "pairs": 2,
+    "tiles": 53,
+    "far_tiles": 8,
+    "viirs_fire_cells": 399
+   }
+  },
+  "Tanzania": {
+   "select": {
+    "episodes": 3,
+    "pairs": 3,
+    "tiles": 168,
+    "far_tiles": 72,
+    "viirs_fire_cells": 2052
+   },
+   "report": {
+    "episodes": 2,
+    "pairs": 2,
+    "tiles": 116,
+    "far_tiles": 47,
+    "viirs_fire_cells": 1179
+   }
+  }
+ },
+ "totals": {
+  "select": {
+   "episodes": 29,
+   "pairs": 62,
+   "tiles": 2110,
+   "far_tiles": 633,
+   "viirs_fire_cells": 35521
+  },
+  "report": {
+   "episodes": 28,
+   "pairs": 52,
+   "tiles": 1633,
+   "far_tiles": 450,
+   "viirs_fire_cells": 36803
+  }
+ },
+ "episodes": {
+  "E120": {
+   "region": "Australia",
+   "side": "select",
+   "tiles": 91,
+   "pairs": 2,
+   "far_tiles": 45,
+   "viirs_fire_cells": 6764
+  },
+  "E121": {
+   "region": "Australia",
+   "side": "select",
+   "tiles": 115,
+   "pairs": 2,
+   "far_tiles": 108,
+   "viirs_fire_cells": 5734
+  },
+  "E122": {
+   "region": "Australia",
+   "side": "report",
+   "tiles": 114,
+   "pairs": 2,
+   "far_tiles": 97,
+   "viirs_fire_cells": 6983
+  },
+  "E123": {
+   "region": "Australia",
+   "side": "select",
+   "tiles": 102,
+   "pairs": 2,
+   "far_tiles": 56,
+   "viirs_fire_cells": 4119
+  },
+  "E125": {
+   "region": "Australia",
+   "side": "report",
+   "tiles": 52,
+   "pairs": 1,
+   "far_tiles": 18,
+   "viirs_fire_cells": 6477
+  },
+  "E126": {
+   "region": "Australia",
+   "side": "report",
+   "tiles": 41,
+   "pairs": 1,
+   "far_tiles": 36,
+   "viirs_fire_cells": 4797
+  },
+  "E127": {
+   "region": "Australia",
+   "side": "report",
+   "tiles": 30,
+   "pairs": 1,
+   "far_tiles": 23,
+   "viirs_fire_cells": 2688
+  },
+  "E128": {
+   "region": "Australia",
+   "side": "select",
+   "tiles": 58,
+   "pairs": 1,
+   "far_tiles": 54,
+   "viirs_fire_cells": 2795
+  },
+  "E130": {
+   "region": "Australia",
+   "side": "select",
+   "tiles": 53,
+   "pairs": 1,
+   "far_tiles": 26,
+   "viirs_fire_cells": 2618
+  },
+  "E132": {
+   "region": "Australia",
+   "side": "report",
+   "tiles": 59,
+   "pairs": 1,
+   "far_tiles": 30,
+   "viirs_fire_cells": 3667
+  },
+  "E135": {
+   "region": "Australia",
+   "side": "report",
+   "tiles": 58,
+   "pairs": 1,
+   "far_tiles": 52,
+   "viirs_fire_cells": 1444
+  },
+  "E081": {
+   "region": "Borneo",
+   "side": "select",
+   "tiles": 7,
+   "pairs": 1,
+   "far_tiles": 0,
+   "viirs_fire_cells": 51
+  },
+  "E095": {
+   "region": "Borneo",
+   "side": "report",
+   "tiles": 13,
+   "pairs": 1,
+   "far_tiles": 2,
+   "viirs_fire_cells": 32
+  },
+  "E032": {
+   "region": "Java/Nusa Tenggara/Sulawesi S",
+   "side": "report",
+   "tiles": 9,
+   "pairs": 1,
+   "far_tiles": 1,
+   "viirs_fire_cells": 123
+  },
+  "E046": {
+   "region": "Java/Nusa Tenggara/Sulawesi S",
+   "side": "select",
+   "tiles": 28,
+   "pairs": 2,
+   "far_tiles": 13,
+   "viirs_fire_cells": 164
+  },
+  "E101": {
+   "region": "Java/Nusa Tenggara/Sulawesi S",
+   "side": "select",
+   "tiles": 12,
+   "pairs": 1,
+   "far_tiles": 7,
+   "viirs_fire_cells": 1
+  },
+  "E007": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 323,
+   "pairs": 11,
+   "far_tiles": 28,
+   "viirs_fire_cells": 2632
+  },
+  "E013": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 618,
+   "pairs": 15,
+   "far_tiles": 95,
+   "viirs_fire_cells": 5529
+  },
+  "E014": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 43,
+   "pairs": 1,
+   "far_tiles": 0,
+   "viirs_fire_cells": 724
+  },
+  "E018": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 34,
+   "pairs": 1,
+   "far_tiles": 1,
+   "viirs_fire_cells": 507
+  },
+  "E028": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 41,
+   "pairs": 1,
+   "far_tiles": 1,
+   "viirs_fire_cells": 547
+  },
+  "E035": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 60,
+   "pairs": 2,
+   "far_tiles": 7,
+   "viirs_fire_cells": 370
+  },
+  "E039": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 95,
+   "pairs": 4,
+   "far_tiles": 7,
+   "viirs_fire_cells": 463
+  },
+  "E041": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 130,
+   "pairs": 5,
+   "far_tiles": 17,
+   "viirs_fire_cells": 684
+  },
+  "E048": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 23,
+   "pairs": 1,
+   "far_tiles": 2,
+   "viirs_fire_cells": 176
+  },
+  "E049": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 158,
+   "pairs": 3,
+   "far_tiles": 48,
+   "viirs_fire_cells": 1179
+  },
+  "E050": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 32,
+   "pairs": 2,
+   "far_tiles": 6,
+   "viirs_fire_cells": 187
+  },
+  "E057": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 27,
+   "pairs": 1,
+   "far_tiles": 1,
+   "viirs_fire_cells": 188
+  },
+  "E058": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 55,
+   "pairs": 2,
+   "far_tiles": 3,
+   "viirs_fire_cells": 314
+  },
+  "E061": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 52,
+   "pairs": 2,
+   "far_tiles": 4,
+   "viirs_fire_cells": 321
+  },
+  "E064": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 19,
+   "pairs": 1,
+   "far_tiles": 1,
+   "viirs_fire_cells": 118
+  },
+  "E067": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 48,
+   "pairs": 2,
+   "far_tiles": 5,
+   "viirs_fire_cells": 134
+  },
+  "E072": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 19,
+   "pairs": 1,
+   "far_tiles": 2,
+   "viirs_fire_cells": 78
+  },
+  "E077": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 49,
+   "pairs": 1,
+   "far_tiles": 9,
+   "viirs_fire_cells": 145
+  },
+  "E080": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 11,
+   "pairs": 1,
+   "far_tiles": 3,
+   "viirs_fire_cells": 26
+  },
+  "E082": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 42,
+   "pairs": 1,
+   "far_tiles": 10,
+   "viirs_fire_cells": 176
+  },
+  "E085": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 32,
+   "pairs": 1,
+   "far_tiles": 12,
+   "viirs_fire_cells": 66
+  },
+  "E089": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 23,
+   "pairs": 2,
+   "far_tiles": 2,
+   "viirs_fire_cells": 61
+  },
+  "E091": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 23,
+   "pairs": 1,
+   "far_tiles": 6,
+   "viirs_fire_cells": 14
+  },
+  "E092": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 25,
+   "pairs": 1,
+   "far_tiles": 3,
+   "viirs_fire_cells": 25
+  },
+  "E100": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 21,
+   "pairs": 1,
+   "far_tiles": 3,
+   "viirs_fire_cells": 54
+  },
+  "E106": {
+   "region": "Mainland SE Asia",
+   "side": "select",
+   "tiles": 28,
+   "pairs": 2,
+   "far_tiles": 5,
+   "viirs_fire_cells": 30
+  },
+  "E110": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 8,
+   "pairs": 1,
+   "far_tiles": 3,
+   "viirs_fire_cells": 11
+  },
+  "E112": {
+   "region": "Mainland SE Asia",
+   "side": "report",
+   "tiles": 7,
+   "pairs": 1,
+   "far_tiles": 1,
+   "viirs_fire_cells": 19
+  },
+  "E053": {
+   "region": "Other",
+   "side": "select",
+   "tiles": 11,
+   "pairs": 1,
+   "far_tiles": 1,
+   "viirs_fire_cells": 224
+  },
+  "E005": {
+   "region": "Papua",
+   "side": "report",
+   "tiles": 324,
+   "pairs": 10,
+   "far_tiles": 56,
+   "viirs_fire_cells": 3517
+  },
+  "E096": {
+   "region": "Philippines",
+   "side": "report",
+   "tiles": 13,
+   "pairs": 1,
+   "far_tiles": 5,
+   "viirs_fire_cells": 7
+  },
+  "E103": {
+   "region": "Philippines",
+   "side": "select",
+   "tiles": 18,
+   "pairs": 1,
+   "far_tiles": 2,
+   "viirs_fire_cells": 40
+  },
+  "E002": {
+   "region": "Sulawesi/Maluku",
+   "side": "select",
+   "tiles": 132,
+   "pairs": 4,
+   "far_tiles": 35,
+   "viirs_fire_cells": 1623
+  },
+  "E025": {
+   "region": "Sulawesi/Maluku",
+   "side": "report",
+   "tiles": 34,
+   "pairs": 1,
+   "far_tiles": 4,
+   "viirs_fire_cells": 385
+  },
+  "E075": {
+   "region": "Sulawesi/Maluku",
+   "side": "select",
+   "tiles": 20,
+   "pairs": 1,
+   "far_tiles": 4,
+   "viirs_fire_cells": 48
+  },
+  "E099": {
+   "region": "Sulawesi/Maluku",
+   "side": "report",
+   "tiles": 19,
+   "pairs": 1,
+   "far_tiles": 4,
+   "viirs_fire_cells": 14
+  },
+  "E137": {
+   "region": "Tanzania",
+   "side": "select",
+   "tiles": 58,
+   "pairs": 1,
+   "far_tiles": 30,
+   "viirs_fire_cells": 940
+  },
+  "E142": {
+   "region": "Tanzania",
+   "side": "select",
+   "tiles": 55,
+   "pairs": 1,
+   "far_tiles": 22,
+   "viirs_fire_cells": 579
+  },
+  "E143": {
+   "region": "Tanzania",
+   "side": "report",
+   "tiles": 58,
+   "pairs": 1,
+   "far_tiles": 23,
+   "viirs_fire_cells": 616
+  },
+  "E146": {
+   "region": "Tanzania",
+   "side": "select",
+   "tiles": 55,
+   "pairs": 1,
+   "far_tiles": 20,
+   "viirs_fire_cells": 533
+  },
+  "E149": {
+   "region": "Tanzania",
+   "side": "report",
+   "tiles": 58,
+   "pairs": 1,
+   "far_tiles": 24,
+   "viirs_fire_cells": 563
+  }
+ }
+}

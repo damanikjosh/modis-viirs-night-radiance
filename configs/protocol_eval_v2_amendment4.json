@@ -1,0 +1,52 @@
+{
+ "name": "protocol_eval_v2_amendment4",
+ "date": "2026-11-14 (Sat, KST ~23:00), written and committed BEFORE any amount-measure score is computed; DIAGNOSTIC ONLY. The primary measure, statistic and decision rule of protocol_eval_v2 (hash ccbb4338cd536bff) and amendments 1-3 are unchanged. No training, existing final-epoch checkpoints only.",
+ "question": "Does the model deliver the right AMOUNT of fire energy per MODIS pixel and per 3 km block, measured against simple methods?",
+ "items": {
+  "selection": "ONLY by the MODIS input, never by VIIRS: a MODIS pixel is an item when it is complete, all its cells are in the common mask, its measured MODIS 4 um radiance is >= 0.5 above the local median in ln units (fire level, rho4 >= 0.5) and it is not saturated. One item per MODIS pixel (once-per-footprint). Pixel scale: all selected pixels. 3 km scale: the selected pixels whose 3x3 block of MODIS pixels is complete (the block is centred on the selected pixel, one item per selected pixel).",
+  "measured": "sum over the pixel's cells (or the 3x3 block's cells) of (measured VIIRS 4 um radiance - local VIIRS median background)^+ ; never the fire product",
+  "predicted": "the same sum with the method's predicted VIIRS 4 um radiance in place of the measured one (the background is the measured VIIRS local median for every method, exactly as protocol v2 'energy')",
+  "eps": "1e-3 radiance units (nightrad.raw.blocks.EPS) added to numerator and denominator wherever a ratio or log is taken"
+ },
+ "methods": [
+  "model (final epoch)",
+  "model with fire switched off (reference, not a 'simple method' for the decision line)",
+  "spread evenly = the no-learning physics conversion (MODIS background converted band-to-band through Planck + MODIS excess divided by the fixed band factor, spread over the cells; no separate physics function exists in the code, this is it)",
+  "Planck-converted copy of MODIS",
+  "raw MODIS copy",
+  "true background + spread evenly (measured VIIRS background + MODIS excess / factor; uses the answer's background: an upper bound for the no-learning route)",
+  "one constant (input-blind; median ln radiance of train fire-level VIIRS cells)"
+ ],
+ "statistics": [
+  "ratio of sums (predicted / measured), pooled over pairs and the median over pairs",
+  "median item ratio ((pred+eps)/(meas+eps))",
+  "log-error e = ln((pred+eps)/(meas+eps)): mean |e|, SD of e, signed mean",
+  "Spearman rank correlation of predicted vs measured energy, per pair (pairs with >= 10 items), mean over pairs",
+  "calibration curve: 8 equal-count bins of predicted energy (pooled over pairs; ties merged), mean measured energy per bin with a pair-clustered 95 % range (4,000 resamples of pairs)",
+  "everything also per scene pair; ranges are pair-clustered bootstrap (4,000 resamples); val2 also region-balanced over episodes as in amendment 1"
+ ],
+ "decision_line": "The model 'delivers the amount' at a scale if, for EVERY simple method (spread evenly, Planck copy, raw copy, true background + spread evenly, constant), its mean |log-error| per pair is smaller, the pair-clustered 95 % range of the mean per-pair difference (method minus model) is above zero, and the model is smaller in >= 75 % of the qualifying pairs (>= 10 items at that scale). It must do so at BOTH scales and on BOTH validations (old validation, and val2-far = val2 tiles >= 60 km from the old training tiles). Otherwise: not delivered (and the report says which comparison fails). The ratio of sums inside 0.8-1.25 is reported as the amount's pass band (amendment 2), not part of this line.",
+ "breakdown": {
+  "fire_size": "weak = measured MODIS rho4 in [0.5, 1.0), strong = rho4 >= 1.0 (fixed cut, ln units)",
+  "scan_angle": "MODIS view zenith of the pixel (mean over its cells): < 20 deg, 20-40 deg, >= 40 deg",
+  "rule": "a stratum with < 10 items or < 3 pairs is listed and marked 'too few', never pass/fail"
+ },
+ "runs_scored": "old loss U-Net seeds 0-2 and small network seed 0 (+ other seeds that exist); gamma, Poisson, normalised-error families seeds 0-2, U-Net and small network; every hybrid run in the sweep (diag-*, gamma/energy variants); 'best hybrid' = the hybrid with the highest protocol-v2 block AUC on old validation as already recorded in proto_last.json (fixed now, not re-chosen)",
+ "closed": "test split and the Kalimantan 2015 episode tiles are not opened; validation and val2 only; no selection on these scores (final epoch only)",
+ "unchanged_hash": "protocol_eval_v2.json sha256[:16] = ccbb4338cd536bff, verified at commit time",
+ "stage0_addition": {
+  "date": "2026-11-14 (Sat, KST ~23:20), added BEFORE any training of the new workflow and before any amount or baseline score; governs stages 1-5",
+  "split": "configs/val2_split.json (scripts/val2_split.py): the 57 val2 episodes split BY EPISODE into SELECT (29 episodes, 62 pairs) and REPORT (28 episodes, 52 pairs); deterministic rule: within each region episodes sorted by their measured VIIRS fire-cell count (a data property) and assigned alternately, odd leftovers to the side with fewer fire cells; so each region (with >=2 episodes) is in both halves. Regions with one episode (Papua: REPORT, Other: SELECT) cannot be balanced and are listed. 'far' = tiles >= 60 km from every old v3 train tile (eval_far_km): flagged per tile, the far subset is the headline subset; counts in the json. Old 16-pair validation = a third, minor check only.",
+  "use": "SELECT: validation curve, stopping, choosing settings and fixes (stages 2-4). REPORT: scored ONCE per final run (stage 5), never used to choose. Training data must hold no tile within 60 km of any select or report tile and no episode on both sides (existing leak check). val2 wave-2 episodes, if the second wave adds any, are NOT in this list and stay unused until a new split is committed.",
+  "four_measures_and_pass_lines": {
+   "scope": "final-epoch (or lowest-validation-loss) checkpoint of the chosen setting, region-balanced over episodes (amendment 1), episode-clustered 95 % ranges, on REPORT; the same numbers on SELECT for choosing. Every pass line must hold on REPORT AND on the far-from-train subset of REPORT.",
+   "1_fire_block_score": "protocol v2 block AUC: model minus spread evenly >= 0.05, range above 0, positive in >= 75 % of qualifying episodes (unchanged rule), AND model not worse than model with fire switched off by > 0 (fire part must add).",
+   "2_amount_on_MODIS_bright_blocks": "amendment 4 amount: pooled ratio of sums (predicted/measured VIIRS excess) at the 3 km scale inside 0.8-1.25, AND the amount decision line of this amendment (log-error smaller than every simple method, range above zero, >= 75 % of qualifying pairs) at pixel and 3 km scale.",
+   "3_hottest_cell_share": "share of a MODIS fire pixel's excess carried by its brightest VIIRS-resolution cell (MODIS-selected pixels with >= 3 cells): model >= 0.33 = halfway between spreading evenly (about 0.14) and the measured value (about 0.52), recomputed on the same set for both reference values and stated next to the model's.",
+   "4_flag_count_vs_real_VIIRS": "documented rule on the predicted VIIRS-like view vs the same rule on measured VIIRS (amendment 3): flagged-cell count ratio in 0.5-2.0 AND block hit rate >= 0.5; false-alarm share reported with it (no pass line, sweep 1 values 0.60 old loss / 0.12-0.15 new losses).",
+   "overall": "a model 'passes' only if all four pass lines hold; otherwise the report states which fail, with numbers, and that the physics (spread evenly) result is what we publish."
+  },
+  "simple_methods_scored_once": "spread evenly (= physics conversion), Planck copy, raw copy, true background + spread, constant, on SELECT and REPORT with the same four measures (flag count and hottest share are computable for them): these numbers are the numbers to beat. Written to s3 runs/the project/raw-v1/round2/baselines/.",
+  "closed": "test split and Kalimantan 2015 remain closed; REPORT is not scored for any model before stage 5."
+ }
+}

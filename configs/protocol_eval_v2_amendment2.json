@@ -1,0 +1,7 @@
+{
+ "name": "protocol_eval_v2_amendment2",
+ "date": "2026-11-14 (Sat, KST ~21:55), DIAGNOSTIC ONLY; the primary measure, statistic, decision rule and hash of protocol_eval_v2 (ccbb4338cd536bff) are unchanged",
+ "why": "the energy ratio at VIIRS fire cells (protocol v2 'energy') divides by VIIRS excess in cells chosen BECAUSE VIIRS is bright: for any mean-consistent predictor that ratio is below 1 by selection (a spread with the right total puts only a share of a pixel's heat on the one burning cell), so it cannot be the admissibility quantity for a deterministic model that cannot place the fire. Found when the first Gamma / Poisson / normalised-squared-error runs scored 0.15 at VIIRS fire cells while conserving the MODIS energy.",
+ "added_diagnostics": ["energy_msel: sum predicted block excess / sum measured VIIRS block excess over COMPLETE 3x3 blocks SELECTED BY THE INPUT (MODIS fire-level pixels: measured rho4 >= 0.5, unsaturated), pooled over pairs - unbiased for a mean-consistent predictor, pass band 0.8-1.25", "energy_blk: the same over blocks selected by VIIRS detection (the target) - reported for reference, selection-biased low for mean-consistent predictors"],
+ "reported_with": "the VIIRS-cell energy ratio of protocol v2 stays in every table next to these; no pass/fail decision on the family comparison is made from a quantity that was added after seeing results unless the primary AUC and these agree; the ranking score (AUC) remains the primary measure and its decision rule is unchanged"
+}

@@ -1,0 +1,15 @@
+{
+ "name": "protocol_eval_v2_amendment5_memorise_gate",
+ "date": "2026-11-14 (Sat, KST ~23:15), written BEFORE any gamma reference run and before the 10,000-step criterion run",
+ "status": "REVISED AFTER THE FIRST GATE RESULT. The original stage-1(a) line was: 'memorise 8 fixed tiles, hiding off, total loss falls > 10x and the picture matches measured VIIRS'. First result (3,000 steps, code e770343): old loss 0.234 -> 0.0179 = 13.1x (pass), gamma 0.0096 -> 0.0027 = 3.5x (fail). Those numbers are kept in the gate record (S3 round2/gates/overfit_{legacy,gamma}.json) and on the review; nothing is deleted.",
+ "why_revised": "The floor anatomy (the review) shows that the end value of the TOTAL loss is ~97 % background cells that cannot be memorised (M->M 0.0036 in every variant; worst 1 % of cells carry 48-69 % of it; cells within 2 cells of the mask border carry 16x the interior deviance; correction bound 0.25 vs 0.5 changes the floor 0.0017 -> 0.0010), while cells under MODIS-bright pixels are fitted. The total-loss line therefore measures the background floor, not whether fire can be learned. The criterion below was proposed by the implementer after seeing that result and accepted by the author; it applies to BOTH losses identically.",
+ "criterion": {
+  "i": "the contribution of cells under MODIS-bright pixels (selected by the MODIS input only: complete footprint, rho4 >= 0.5, unsaturated) to the SAME loss falls by more than 10x between step 0 and the end",
+  "ii": "median |ln(predicted / measured)| of the M->V prediction at VIIRS fire cells (measured rho4 >= 0.5) < 0.1",
+  "iii": "energy ratio (predicted excess / measured excess, summed) at the MODIS-bright cells within 0.9 - 1.1",
+  "rule": "a loss passes only if (i), (ii) and (iii) all hold",
+  "setting": "ONE fixed setting = exactly the reference-run configuration: U-Net width 32 / latent 16, background-correction bound 0.25, bf16, AdamW constant LR 2e-3 after 100 warm-up steps (--lr-const), hiding OFF, 8 fixed tiles (the 8 train tiles with most MODIS-bright cells), 10,000 steps, seed 0"
+ },
+ "background_floor_named_line": "4th line 'background cannot be memorised' (reported, not a pass/fail line): M->M and V->V gamma deviance floors. Stage-3 item #1: what limits self-reconstruction (correction bound, local-median background at mask borders, view operators at tile/mask edges). Affects both losses.",
+ "freeze": "committed before the criterion run and before any gamma reference run; pass lines may only be edited by a visible commit"
+}

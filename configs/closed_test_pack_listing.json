@@ -1,0 +1,361 @@
+{
+ "status": "PINNED listing of the held-out episode packs (file name and size) taken before any tile was opened; closed_test.py refuses any other pack.",
+ "packs": {
+  "night": {
+   "n_objects": 43,
+   "total_bytes": 661769332,
+   "objects": [
+    {
+     "name": "eval_ci.npy",
+     "size": 1522
+    },
+    {
+     "name": "eval_cj.npy",
+     "size": 1522
+    },
+    {
+     "name": "eval_day.npy",
+     "size": 825
+    },
+    {
+     "name": "eval_day_ord.npy",
+     "size": 2916
+    },
+    {
+     "name": "eval_daynight.npy",
+     "size": 825
+    },
+    {
+     "name": "eval_dt_min.npy",
+     "size": 2916
+    },
+    {
+     "name": "eval_has_viirs.npy",
+     "size": 825
+    },
+    {
+     "name": "eval_modis_cls.npy",
+     "size": 6423680
+    },
+    {
+     "name": "eval_modis_conf.npy",
+     "size": 25694336
+    },
+    {
+     "name": "eval_modis_frp.npy",
+     "size": 25694336
+    },
+    {
+     "name": "eval_modis_raw.npy",
+     "size": 6423680
+    },
+    {
+     "name": "eval_modis_scan.npy",
+     "size": 25694336
+    },
+    {
+     "name": "eval_month.npy",
+     "size": 825
+    },
+    {
+     "name": "eval_pair_id.npy",
+     "size": 2916
+    },
+    {
+     "name": "eval_tile_lat.npy",
+     "size": 5704
+    },
+    {
+     "name": "eval_tile_lon.npy",
+     "size": 5704
+    },
+    {
+     "name": "eval_viirs_cls.npy",
+     "size": 6423680
+    },
+    {
+     "name": "eval_viirs_conf.npy",
+     "size": 25694336
+    },
+    {
+     "name": "eval_viirs_frp.npy",
+     "size": 25694336
+    },
+    {
+     "name": "eval_viirs_raw.npy",
+     "size": 6423680
+    },
+    {
+     "name": "eval_viirs_scan.npy",
+     "size": 25694336
+    },
+    {
+     "name": "eval_year.npy",
+     "size": 1522
+    },
+    {
+     "name": "geo.json",
+     "size": 56944
+    },
+    {
+     "name": "meta.json",
+     "size": 621
+    },
+    {
+     "name": "modis_L.npy",
+     "size": 51388544
+    },
+    {
+     "name": "modis_band21.npy",
+     "size": 6423680
+    },
+    {
+     "name": "modis_code.npy",
+     "size": 6423680
+    },
+    {
+     "name": "modis_complete.npy",
+     "size": 6423680
+    },
+    {
+     "name": "modis_cossza.npy",
+     "size": 25694336
+    },
+    {
+     "name": "modis_nbr.npy",
+     "size": 102776960
+    },
+    {
+     "name": "modis_pid.npy",
+     "size": 25694336
+    },
+    {
+     "name": "modis_psize.npy",
+     "size": 51388544
+    },
+    {
+     "name": "modis_sat.npy",
+     "size": 6423680
+    },
+    {
+     "name": "modis_vza.npy",
+     "size": 25694336
+    },
+    {
+     "name": "pack_report.json",
+     "size": 764
+    },
+    {
+     "name": "tiles.json",
+     "size": 53669
+    },
+    {
+     "name": "viirs_L.npy",
+     "size": 51388544
+    },
+    {
+     "name": "viirs_band21.npy",
+     "size": 6423680
+    },
+    {
+     "name": "viirs_code.npy",
+     "size": 6423680
+    },
+    {
+     "name": "viirs_cossza.npy",
+     "size": 25694336
+    },
+    {
+     "name": "viirs_psize.npy",
+     "size": 51388544
+    },
+    {
+     "name": "viirs_sat.npy",
+     "size": 6423680
+    },
+    {
+     "name": "viirs_vza.npy",
+     "size": 25694336
+    }
+   ]
+  },
+  "day": {
+   "n_objects": 43,
+   "total_bytes": 761461010,
+   "objects": [
+    {
+     "name": "eval_ci.npy",
+     "size": 1732
+    },
+    {
+     "name": "eval_cj.npy",
+     "size": 1732
+    },
+    {
+     "name": "eval_day.npy",
+     "size": 930
+    },
+    {
+     "name": "eval_day_ord.npy",
+     "size": 3336
+    },
+    {
+     "name": "eval_daynight.npy",
+     "size": 930
+    },
+    {
+     "name": "eval_dt_min.npy",
+     "size": 3336
+    },
+    {
+     "name": "eval_has_viirs.npy",
+     "size": 930
+    },
+    {
+     "name": "eval_modis_cls.npy",
+     "size": 7391360
+    },
+    {
+     "name": "eval_modis_conf.npy",
+     "size": 29565056
+    },
+    {
+     "name": "eval_modis_frp.npy",
+     "size": 29565056
+    },
+    {
+     "name": "eval_modis_raw.npy",
+     "size": 7391360
+    },
+    {
+     "name": "eval_modis_scan.npy",
+     "size": 29565056
+    },
+    {
+     "name": "eval_month.npy",
+     "size": 930
+    },
+    {
+     "name": "eval_pair_id.npy",
+     "size": 3336
+    },
+    {
+     "name": "eval_tile_lat.npy",
+     "size": 6544
+    },
+    {
+     "name": "eval_tile_lon.npy",
+     "size": 6544
+    },
+    {
+     "name": "eval_viirs_cls.npy",
+     "size": 7391360
+    },
+    {
+     "name": "eval_viirs_conf.npy",
+     "size": 29565056
+    },
+    {
+     "name": "eval_viirs_frp.npy",
+     "size": 29565056
+    },
+    {
+     "name": "eval_viirs_raw.npy",
+     "size": 7391360
+    },
+    {
+     "name": "eval_viirs_scan.npy",
+     "size": 29565056
+    },
+    {
+     "name": "eval_year.npy",
+     "size": 1732
+    },
+    {
+     "name": "geo.json",
+     "size": 65509
+    },
+    {
+     "name": "meta.json",
+     "size": 621
+    },
+    {
+     "name": "modis_L.npy",
+     "size": 59129984
+    },
+    {
+     "name": "modis_band21.npy",
+     "size": 7391360
+    },
+    {
+     "name": "modis_code.npy",
+     "size": 7391360
+    },
+    {
+     "name": "modis_complete.npy",
+     "size": 7391360
+    },
+    {
+     "name": "modis_cossza.npy",
+     "size": 29565056
+    },
+    {
+     "name": "modis_nbr.npy",
+     "size": 118259840
+    },
+    {
+     "name": "modis_pid.npy",
+     "size": 29565056
+    },
+    {
+     "name": "modis_psize.npy",
+     "size": 59129984
+    },
+    {
+     "name": "modis_sat.npy",
+     "size": 7391360
+    },
+    {
+     "name": "modis_vza.npy",
+     "size": 29565056
+    },
+    {
+     "name": "pack_report.json",
+     "size": 762
+    },
+    {
+     "name": "tiles.json",
+     "size": 61754
+    },
+    {
+     "name": "viirs_L.npy",
+     "size": 59129984
+    },
+    {
+     "name": "viirs_band21.npy",
+     "size": 7391360
+    },
+    {
+     "name": "viirs_code.npy",
+     "size": 7391360
+    },
+    {
+     "name": "viirs_cossza.npy",
+     "size": 29565056
+    },
+    {
+     "name": "viirs_psize.npy",
+     "size": 59129984
+    },
+    {
+     "name": "viirs_sat.npy",
+     "size": 7391360
+    },
+    {
+     "name": "viirs_vza.npy",
+     "size": 29565056
+    }
+   ]
+  }
+ }
+}

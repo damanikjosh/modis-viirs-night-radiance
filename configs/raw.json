@@ -1,0 +1,153 @@
+{
+ "config": {
+  "daynight": "night only (cos SZA < 0) by default; day and both are explicit switches",
+  "exclusions": [
+   {
+    "box": {
+     "lat_max": 1.0,
+     "lat_min": -3.0,
+     "lon_max": 115.0,
+     "lon_min": 111.0
+    },
+    "buffer_km": 60.0,
+    "name": "kalimantan-2015",
+    "why": "story validation episode (Central Kalimantan 14-23 Sep 2015 +-4 days); must stay a true held-out test",
+    "window": [
+     "2015-09-10",
+     "2015-09-27"
+    ]
+   }
+  ],
+  "input_policy": "VIIRS cells at the 367 K placeholder (written by the tile builder where the product declares saturation or no processing) are removed by the mask; viirs_sat is never an input (zeroed); every radiance and saturation channel is zero outside the mask; modis_sat and band21 come from the L1B radiances",
+  "rule": {
+   "dil_modis": 8,
+   "dil_viirs": 2,
+   "dt_pot": [
+    10.0,
+    10.0
+   ],
+   "dt_star": [
+    10.0,
+    35.0
+   ],
+   "k_sigma_dt": 3.5,
+   "k_sigma_t4": 3.0,
+   "k_win": 7,
+   "min_bg": 8,
+   "min_d4": 0.0,
+   "min_ddt": 6.0,
+   "mode": "c6",
+   "star_offset": 5.0,
+   "t11_test": true,
+   "t4_abs": [
+    320.0,
+    360.0
+   ],
+   "t4_abs_viirs": [
+    320.0,
+    1000000000.0
+   ],
+   "t4_pot": [
+    305.0,
+    310.0
+   ],
+   "t4_pot_viirs": [
+    295.0,
+    325.0
+   ],
+   "t4_star": [
+    300.0,
+    330.0
+   ]
+  },
+  "run": {
+   "alloc": false,
+   "daynight": "night",
+   "hide": {
+    "center_jitter": 0,
+    "enabled": true,
+    "jitter": 2,
+    "n_random": 1,
+    "n_top": 3,
+    "p_tile": 0.5,
+    "partial_p": 0.0,
+    "partial_window": 3,
+    "rho_min": 0.5,
+    "window": 9
+   },
+   "loss": {
+    "alloc_weight": 0.1,
+    "band_weights": [
+     1.0,
+     1.0
+    ],
+    "block_w_mv": 0.0,
+    "block_w_vm": 0.0,
+    "bright_weight": 0.0,
+    "class_balance": true,
+    "class_shares": [
+     0.4,
+     0.2,
+     0.4
+    ],
+    "delta": 0.1,
+    "false_share": 0.0,
+    "fire_clip": 1.5,
+    "fire_gain": 4.0,
+    "fire_level": 0.5,
+    "footprint_norm": "area",
+    "hidden_weight": 1.0,
+    "hurdle_weight": 1.0,
+    "input_weight": 0.0,
+    "loss_family": "gamma",
+    "mode": "legacy",
+    "near_radius": 2,
+    "scale_w": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "term_weights": {
+     "mm": 0.1,
+     "mv": 1.0,
+     "vm": 0.5,
+     "vv": 0.1
+    },
+    "visible_weight": 0.25,
+    "w_energy": 0.0
+   },
+   "median_dil": 2,
+   "median_k": 7,
+   "min_valid_frac": 0.1,
+   "mv_mode": "free",
+   "net": {
+    "alloc_head": false,
+    "arch": "unet",
+    "delta_lowres": 1,
+    "delta_max": 0.25,
+    "hurdle_head": false,
+    "latent": 16,
+    "out4": false,
+    "rho_skip": true,
+    "s_bias": -4.0,
+    "s_max": 8.0,
+    "sun_term": false,
+    "t_tie": 800.0,
+    "tie11": false,
+    "width": 32
+   },
+   "tie11": false,
+   "view": {
+    "kernel": "tri",
+    "t_fire": 800.0,
+    "tie11": false,
+    "w_scan": 0.001,
+    "w_track": 0.0
+   },
+   "widen": 0
+  },
+  "tuning_data": "train + validation only; a test split needs --allow-test and is logged in test_access.log"
+ },
+ "hash": "65df262c743e11de",
+ "run_hash": "388d93cd829a63c4"
+}

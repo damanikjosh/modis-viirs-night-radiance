@@ -1,0 +1,30 @@
+{
+ "A": [
+  373,
+  374,
+  444,
+  445,
+  489,
+  548,
+  555,
+  617
+ ],
+ "B": [
+  371,
+  449,
+  488,
+  550,
+  606,
+  608,
+  618,
+  651
+ ],
+ "_meta": {
+  "seed": 20251114,
+  "source": "night validation pairs of the small-data validation set split by pair (seed 20251114); select on A, confirm on B",
+  "n_tiles": {
+   "A": 175,
+   "B": 147
+  }
+ }
+}

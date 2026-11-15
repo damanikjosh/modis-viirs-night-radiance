@@ -1,0 +1,101 @@
+{
+ "status": "FROZEN: one candidate for the held-out episode, fixed by sha256 before the lock was taken and before any held-out tile was scored. Strict rule: ONE candidate per target, one run per target.",
+ "policy": "One run per target (the held-out episode). The checkpoint is fixed by sha256 in this committed file before the lock. Scoring more than one frozen candidate on the same target would turn the target into a selection set.",
+ "const_files": {
+  "train_const_gammabw100-nf2-s0.json": {
+   "sha256": "6280b541bf93756733eefa94b776f0bd104503176ce08ccf6359246e9cc8c574"
+  },
+  "train_const_gammabw1000-nf2-s0.json": {
+   "sha256": "5812bd46e513deda9ea25aa25ad755fdc49cd2017680edc982a1e4c33a47a31c"
+  }
+ },
+ "frozen_candidates_available": [
+  {
+   "name": "gammabw100-nf2-s0__best_val",
+   "sha256": "87251b2bb8f151d3e941922862f5f146d7b6e0dff02f519d337ab6e8e523dc26",
+   "size": 1778550,
+   "file": "gammabw100-nf2-s0__best_val.pt"
+  },
+  {
+   "name": "gammabw100-nf2-s0__ep046",
+   "sha256": "21944a30485c623495296739e6eb06809d3fdb27d3c1d0f491256cc96a0cbf5a",
+   "size": 1778355,
+   "file": "gammabw100-nf2-s0__ep046.pt"
+  },
+  {
+   "name": "gammabw100-nf2-s1__best_val",
+   "sha256": "615be10428f025cb3103d82331a074bdfd544f6ac47cb38f39bcccd93ad2f1e2",
+   "size": 1778550,
+   "file": "gammabw100-nf2-s1__best_val.pt"
+  },
+  {
+   "name": "gammabw100-nf2-s1__ep046",
+   "sha256": "f8b808f374a9c79939b285ef6074fd5c3d0611bf627c78bc89939c978c335d19",
+   "size": 1778355,
+   "file": "gammabw100-nf2-s1__ep046.pt"
+  },
+  {
+   "name": "gammabw1000-nf2-s0__best_val",
+   "sha256": "ab2a276d8368a91ef080c332affc4fdf2e4bcbf40b917a75e2cf6647a5fdd8d9",
+   "size": 1778550,
+   "file": "gammabw1000-nf2-s0__best_val.pt"
+  },
+  {
+   "name": "gammabw1000-nf2-s0__ep046",
+   "sha256": "4810b33619d5ebfed33e470bef02e9980e0af1ab54897d7a609674085c69228a",
+   "size": 1778355,
+   "file": "gammabw1000-nf2-s0__ep046.pt"
+  },
+  {
+   "name": "gammabw1000-nf2-s1__best_val",
+   "sha256": "5b63b74f7184341d9c455b19fad7631b66ee1f26e9d1a0621524082015e97eea",
+   "size": 1778550,
+   "file": "gammabw1000-nf2-s1__best_val.pt"
+  },
+  {
+   "name": "gammabw1000-nf2-s1__ep046",
+   "sha256": "e8b366d0d9fbf06d6c225e2743bdaa803ad3d003f79cc424a179ba80b1c5a76a",
+   "size": 1778355,
+   "file": "gammabw1000-nf2-s1__ep046.pt"
+  },
+  {
+   "name": "gammabw100-d05-nf2-s0__best_val",
+   "sha256": "9ce5f6b5215d21b17a598187c37a5efd8a1f362d9ba156baa09341494486afe5",
+   "size": 1778550,
+   "file": "gammabw100-d05-nf2-s0__best_val.pt"
+  },
+  {
+   "name": "gammabw100-d05-nf2-s0__ep046",
+   "sha256": "7ef9878ab6db48109a3d45912869b68ba337442c9d578cbb5d8f59b9a631eefe",
+   "size": 1778355,
+   "file": "gammabw100-d05-nf2-s0__ep046.pt"
+  },
+  {
+   "name": "gammabw100-d05-nf2-s1__best_val",
+   "sha256": "d778cba3afd6c1f8e75040f185d0b284640fca00ceaec85df439b91ca7bd424d",
+   "size": 1778550,
+   "file": "gammabw100-d05-nf2-s1__best_val.pt"
+  },
+  {
+   "name": "gammabw100-d05-nf2-s1__ep046",
+   "sha256": "fe97f1c1d327ab3a4a3add80476357f320da8b95cfa23c67f2c3fdc0517897b4",
+   "size": 1778355,
+   "file": "gammabw100-d05-nf2-s1__ep046.pt"
+  }
+ ],
+ "episode": {
+  "candidate": {
+   "chosen_at": "2026-11-15 11:44 KST",
+   "chosen_by": "the author",
+   "const_file": "train_const_gammabw100-nf2-s0.json",
+   "name": "gammabw100-nf2-s0__best_val",
+   "sha256": "87251b2bb8f151d3e941922862f5f146d7b6e0dff02f519d337ab6e8e523dc26",
+   "why_this_candidate": {
+    "known_weaknesses": "block ranking does not beat the even spread (line 1 fails for every gamma-family run); selection of best-validation checkpoints and the setting was made on SELECT; 'delivers' at 3 km rests on a handful of scene pairs (e.g. 25 of 33 vs the 75 % line); the weight comparison is within seed noise",
+    "pre_stated_lines_met_on_SELECT": "seed 0 of weight 100 at its best-validation checkpoint (epoch 17) meets lines 2, 3, 4 of 2-5 on full SELECT; line 1 (block ranking vs even spread) is not met by any gamma-family run",
+    "seeds": "weight 100: 2 of 4 seeds meet all of lines 2-5, 13 of 16 line passes; other weight: 1 of 4 seeds, 11 of 16; decided at step 1 of the pick rule"
+   },
+   "file": "gammabw100-nf2-s0__best_val.pt"
+  }
+ }
+}

@@ -1,0 +1,439 @@
+{
+ "note": "Loss-family sweep on the small data (9-pair validation split into halves A/B by pair). 'default' = Group-share loss (train_raw.py --loss legacy), 'family' = Gamma / Poisson / squared-error deviance with the energy term; U-Net and three-convolution network (arch conv3), seeds 0-2. All runs: 30 epochs, batch 32, bf16.",
+ "fixed": [
+  "--epochs",
+  "30",
+  "--bs",
+  "32",
+  "--compile",
+  "--compile-prep",
+  "--amp",
+  "bf16",
+  "--halves",
+  "configs/lossfamily_halves.json",
+  "--eval-every",
+  "2"
+ ],
+ "runs": [
+  {
+   "name": "unet__default-default__s0",
+   "arch": "unet",
+   "factor": "default",
+   "level": "default",
+   "seed": 0,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "0"
+   ]
+  },
+  {
+   "name": "conv3__default-default__s0",
+   "arch": "conv3",
+   "factor": "default",
+   "level": "default",
+   "seed": 0,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "0"
+   ]
+  },
+  {
+   "name": "unet__default-default__s1",
+   "arch": "unet",
+   "factor": "default",
+   "level": "default",
+   "seed": 1,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "1"
+   ]
+  },
+  {
+   "name": "conv3__default-default__s1",
+   "arch": "conv3",
+   "factor": "default",
+   "level": "default",
+   "seed": 1,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "1"
+   ]
+  },
+  {
+   "name": "unet__default-default__s2",
+   "arch": "unet",
+   "factor": "default",
+   "level": "default",
+   "seed": 2,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "2"
+   ]
+  },
+  {
+   "name": "conv3__default-default__s2",
+   "arch": "conv3",
+   "factor": "default",
+   "level": "default",
+   "seed": 2,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "2"
+   ]
+  },
+  {
+   "name": "unet__fam-gamma__s0",
+   "arch": "unet",
+   "factor": "family",
+   "level": "gamma",
+   "seed": 0,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "0",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "gamma",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "unet__fam-poisson__s0",
+   "arch": "unet",
+   "factor": "family",
+   "level": "poisson",
+   "seed": 0,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "0",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "poisson",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "unet__fam-nmse__s0",
+   "arch": "unet",
+   "factor": "family",
+   "level": "nmse",
+   "seed": 0,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "0",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "nmse",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "unet__fam-gamma__s1",
+   "arch": "unet",
+   "factor": "family",
+   "level": "gamma",
+   "seed": 1,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "1",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "gamma",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "unet__fam-poisson__s1",
+   "arch": "unet",
+   "factor": "family",
+   "level": "poisson",
+   "seed": 1,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "1",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "poisson",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "unet__fam-nmse__s1",
+   "arch": "unet",
+   "factor": "family",
+   "level": "nmse",
+   "seed": 1,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "1",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "nmse",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "conv3__fam-gamma__s0",
+   "arch": "conv3",
+   "factor": "family",
+   "level": "gamma",
+   "seed": 0,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "0",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "gamma",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "conv3__fam-poisson__s0",
+   "arch": "conv3",
+   "factor": "family",
+   "level": "poisson",
+   "seed": 0,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "0",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "poisson",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "conv3__fam-nmse__s0",
+   "arch": "conv3",
+   "factor": "family",
+   "level": "nmse",
+   "seed": 0,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "0",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "nmse",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "unet__fam-gamma__s2",
+   "arch": "unet",
+   "factor": "family",
+   "level": "gamma",
+   "seed": 2,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "2",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "gamma",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "unet__fam-poisson__s2",
+   "arch": "unet",
+   "factor": "family",
+   "level": "poisson",
+   "seed": 2,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "2",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "poisson",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "unet__fam-nmse__s2",
+   "arch": "unet",
+   "factor": "family",
+   "level": "nmse",
+   "seed": 2,
+   "args": [
+    "--arch",
+    "unet",
+    "--seed",
+    "2",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "nmse",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "conv3__fam-gamma__s1",
+   "arch": "conv3",
+   "factor": "family",
+   "level": "gamma",
+   "seed": 1,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "1",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "gamma",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "conv3__fam-poisson__s1",
+   "arch": "conv3",
+   "factor": "family",
+   "level": "poisson",
+   "seed": 1,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "1",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "poisson",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "conv3__fam-nmse__s1",
+   "arch": "conv3",
+   "factor": "family",
+   "level": "nmse",
+   "seed": 1,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "1",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "nmse",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "conv3__fam-gamma__s2",
+   "arch": "conv3",
+   "factor": "family",
+   "level": "gamma",
+   "seed": 2,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "2",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "gamma",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "conv3__fam-poisson__s2",
+   "arch": "conv3",
+   "factor": "family",
+   "level": "poisson",
+   "seed": 2,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "2",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "poisson",
+    "--w-energy",
+    "0.1"
+   ]
+  },
+  {
+   "name": "conv3__fam-nmse__s2",
+   "arch": "conv3",
+   "factor": "family",
+   "level": "nmse",
+   "seed": 2,
+   "args": [
+    "--arch",
+    "conv3",
+    "--seed",
+    "2",
+    "--loss",
+    "gamma",
+    "--loss-family",
+    "nmse",
+    "--w-energy",
+    "0.1"
+   ]
+  }
+ ]
+}
