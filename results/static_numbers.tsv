@@ -1,0 +1,162 @@
+# name	value	source	note (recorded values: each is as recorded in the source named, not computed by scripts/paper/gen_numbers.py)
+BlocksTotal	1,380	dataset and training record (counts from the data pipeline)	100 km blocks in the nf2 split
+BlocksSelect	806	dataset and training record (counts from the data pipeline)	SELECT blocks
+BlocksReport	574	dataset and training record (counts from the data pipeline)	REPORT blocks
+FirmsGB	8.99	dataset and training record (counts from the data pipeline)	FIRMS world archives in S3: 352 files, 8.99 GB, every size equals the provider index
+FourBlockA	0.810	4 um-only output ablation record (small data list)	4 um only, seed 0, block score
+FourBlockB	0.807	4 um-only output ablation record (small data list)	4 um only, seed 1 (0.8073)
+TwoBlockA	0.817	4 um-only output ablation record (small data list)	two-band lowest block score (seed 1 reference 0.8173)
+TwoBlockB	0.824	4 um-only output ablation record (small data list)	two-band highest block score (0.8240 re-run seed 0)
+FourGap	0.012	4 um-only output ablation record (small data list)	reviewer: block-score gap -0.012, about twice the two-band seed spread 0.0065
+FourSpread	0.0065	4 um-only output ablation record (small data list)	two-band seed spread of the block score
+FourTiles	1,702	4 um-only output ablation record (small data list)	SELECT tiles of the 4 um test
+FourPairs	58	4 um-only output ablation record (small data list)	scene pairs
+FourKept	93.9	4 um-only output ablation record (small data list)	fire blocks kept when the rule uses converted MODIS 11 um (SELECT)
+FourExtra	2.6	4 um-only output ablation record (small data list)	extra blocks, same comparison
+PoisAmount	1.05--1.07	4 um-only output ablation record (small data list); recorded, not independently reproduced	Poisson 4 um-only amount on MODIS-bright blocks, seeds 0 and 1
+HeldMean	5.7	published day/night detection statistics record	held-out whole-year error, Indonesia, mean (%)
+HeldWorst	15	published day/night detection statistics record	held-out whole-year error, Indonesia, worst (%)
+HeldYearTwelve	11	published day/night detection statistics record	year 2012 itself comes out about 11 % high
+JumpGlued	5.0	published day/night detection statistics record	Indonesia yearly detections, MODIS glued to VIIRS, jump at 2011-2012
+RatioPerMod	5.1	published day/night detection statistics record	VIIRS detections per MODIS detection, Indonesia 2013-2025, app filter
+InventedChecked	1,996,243	resampling check record	night cells inside the common mask in the 725 night tiles of the sample
+InventedInMask	0	resampling check record	invented 367 K cells inside the common mask
+InventedTiles	1,809	resampling check record	stored v3 train/val tiles checked
+KalTiles	1,499	dataset and training record (counts from the data pipeline)	paired Kalimantan 2015 tiles
+KalNight	697	dataset and training record (counts from the data pipeline)	night tiles of the 2015 episode (802 day)
+MinCommon	0.02	results/raw/gammabw1000-nf2-s0/run_meta.json data.*.pack_report.min_common	night pack filter
+MinKmTrainSelect	100	dataset and training record (counts from the data pipeline)	km
+ModFourWave	3.96	src/nightrad/raw/planck.py LAMBDA	MODIS 4 um band centre, um
+ModElevenWave	11.0	src/nightrad/raw/planck.py LAMBDA	MODIS 11 um band centre
+VirFourWave	3.74	src/nightrad/raw/planck.py LAMBDA	VIIRS I4 band centre
+VirElevenWave	11.45	src/nightrad/raw/planck.py LAMBDA	VIIRS I5 band centre
+OldMemoEnergy	1.37	dataset and training record (counts from the data pipeline)	energy under MODIS-bright cells on memorised tiles, old loss, wave-1 data
+PairsChosen	1,017	dataset and training record (counts from the data pipeline)	scene pairs chosen (370 + 647)
+PairsWaveOne	370	dataset and training record (counts from the data pipeline)	wave 1
+PairsWaveTwo	647	dataset and training record (counts from the data pipeline)	wave 2
+ReportFire	2,071	dataset and training record (counts from the data pipeline)	fire-level pixels, REPORT after retirement
+ReportFireOld	2,309	dataset and training record (counts from the data pipeline)	before retirement
+ReportPairs	657	dataset and training record (counts from the data pipeline)	pairs after retirement
+ReportPairsOld	664	dataset and training record (counts from the data pipeline)	pairs before
+ReportTiles	3,945	dataset and training record (counts from the data pipeline)	REPORT tiles after retirement
+ReportTilesOld	4,033	dataset and training record (counts from the data pipeline)	before
+Retired	88	dataset and training record (counts from the data pipeline)	retired REPORT tiles (decision 1)
+ReviewCells	484	dataset and training record (counts from the data pipeline)	cells of the decision table equal to the raw score files
+ReviewHash	36	dataset and training record (counts from the data pipeline)	score files whose checkpoint hash equals the S3 checkpoint
+SeaWeighted	20	dataset and training record (counts from the data pipeline)	Southeast Asia share of the weighted training fire sample
+SelectManifest	3,399	dataset and training record (counts from the data pipeline)	SELECT tiles in the manifest
+SmallTrain	2,340	dataset and training record (counts from the data pipeline)	training tiles of the small data set
+StrictBefore	58.2	resampling check record	VIIRS fire pixels inside the strict mask, old rule, 44 pairs
+StrictAfter	76.8	resampling check record	new rule
+StrictModBefore	59.1	resampling check record	MODIS, old rule
+StrictModAfter	80.8	resampling check record	MODIS, new rule
+TilesBuilt	41,880	dataset and training record (counts from the data pipeline)	night-fire tiles built
+TilesKept	32,914	dataset and training record (counts from the data pipeline)	kept
+WideSteps	3,000	dataset and training record (counts from the data pipeline)	memorise steps
+PodUsdHour	0.89	training compute record	USD per hour
+ExpSepHot	8	experiment A1 (scripts/exp/a_stored.py)	of 10 setting pairs separated (seed ranges do not overlap) on hottest-cell share, best-validation
+ExpSepRank	4	experiment A1 (scripts/exp/a_stored.py)	same, block ranking
+ExpSepAmount	2	experiment A1 (scripts/exp/a_stored.py)	same, 3 km amount
+ExpSepFlags	0	experiment A1 (scripts/exp/a_stored.py)	same, flag ratio
+ExpSepEnergy	2	experiment A1 (scripts/exp/a_stored.py)	same, energy ratio
+ExpSepPairs	10	experiment A1 (scripts/exp/a_stored.py)	setting pairs among the five Gamma-family settings
+ExpLastBinErr	1.40	experiment B5 (scripts/exp/b_analysis.py)	mean abs log error
+ExpLastBinN	151	experiment B5 (scripts/exp/b_analysis.py)	items in the outermost bin (view angle 50 deg or more)
+ExpFlatErrLo	0.92	experiment B5 (scripts/exp/b_analysis.py)	model error in the flat bins, min
+ExpFlatErrHi	1.04	experiment B5 (scripts/exp/b_analysis.py)	model error in the flat bins, max
+ExpGainLo	0.2	experiment B6 (scripts/exp/b_analysis.py)	gain over the best simple method, log units, approximate lower end of the range of six bins (0.22)
+ExpGainHi	0.4	experiment B6 (scripts/exp/b_analysis.py)	approximate upper end (0.42)
+ExpInfTiles	7.49	experiment B8 (scripts/exp/inference_cost.py)	tiles per second
+ExpInfGranule	283	experiment B8 (scripts/exp/inference_cost.py)	seconds per MODIS granule, 1 thread
+XdScoredReport	45	dataset and training record (counts from the data pipeline); recorded, not independently reproduced	REPORT tiles actually scored in the cross-data pack
+XdScoredSelect	446	dataset and training record (counts from the data pipeline); recorded, not independently reproduced	SELECT tiles in the scored cross-data pack
+XdScoredTotal	491	dataset and training record (counts from the data pipeline); recorded, not independently reproduced	tiles scored (of 589 listed)
+XdListed	589	dataset and training record (counts from the data pipeline); recorded, not independently reproduced	tiles in the cross-data list (501 SELECT + 88 REPORT)
+XdFirePx	238	same (builder: 10.3 % of REPORT's then 2,309 fire-level pixels; reviewer gives 238 of 2,663 for the 88 tiles; open question Q-21-REP-4)	fire-level MODIS pixels in the 45 scored REPORT tiles
+XdFirePctr	10.3	same (builder: 10.3 % of REPORT's then 2,309 fire-level pixels; reviewer gives 238 of 2,663 for the 88 tiles; open question Q-21-REP-4)	percent of REPORT fire-level pixels (builder's denominator 2,309)
+AusFirePx	4,854	dataset and training record (counts from the data pipeline)	SELECT fire-level pixels in Australia
+SelFirePx	6,738	dataset and training record (counts from the data pipeline)	SELECT fire-level pixels, all regions
+AusShare	72	computed from the two lines above (4,854 / 6,738)	percent of SELECT fire pixels in Australia
+XdSelectListed	501	dataset and training record (counts from the data pipeline)	SELECT tiles in the 589-tile cross-data list
+PooledEven	0.56	dataset and training record (counts from the data pipeline)	pooled 3 km error
+PooledExcess	0.49	dataset and training record (counts from the data pipeline)	pooled 3 km error, excess-only
+OldValEven	0.14	configs/protocol_eval_v2_amendment4.json	even spread on old validation
+OldValMeas	0.52	configs/protocol_eval_v2_amendment4.json	measured on old validation
+DayRatioIdn	4.5	published day/night detection statistics record	Indonesia, day
+NightRatioIdn	7.2	published day/night detection statistics record	Indonesia, night
+DayRatioMmr	4.3	published day/night detection statistics record	Myanmar, day
+NightRatioMmr	18.2	published day/night detection statistics record	Myanmar, night
+NightOverDayLo	1.6	published day/night detection statistics record	lower end
+NightOverDayHi	4.3	published day/night detection statistics record	upper end
+ZhengValPairs	78,162	closest-work comparison record (cited paper / selection list property)	validation pairs
+FiveMinTiles	610	closest-work comparison record (cited paper / selection list property)	SELECT manifest tiles with time gap of at most 5 min
+NoBgFall	7.4	experiment C, short-budget ablations (scripts/exp/c_analysis.py)	bright-cell loss fall (x)
+ShortSteps	1,752	experiment C, short-budget ablations (scripts/exp/c_analysis.py)	steps of the short-budget runs
+FullSteps	29,762	results/raw/gammabw1000-nf2-s0/log.jsonl (last row: step)	steps of the full runs
+PairCand	7,462	pairing and data-selection record (orbit and granule-overlap scans)	candidate pairs of the night-fire set
+PairTiled	971	pairing and data-selection record (orbit and granule-overlap scans)	selected pairs that produced tiles
+MeanGapTiles	14.2	pairing and data-selection record (orbit and granule-overlap scans)	minutes
+CandRecount	63,877	pairing and data-selection record (orbit and granule-overlap scans)	candidate pairs of the earlier dataset reproduced
+DaysSampled	119	pairing and data-selection record (orbit and granule-overlap scans)	sampled days with pairs
+KeepPct	7.1	pairing and data-selection record (orbit and granule-overlap scans)	percent of all Aqua-VIIRS overlaps inside 30 min
+OverlapsAll	904,669	pairing and data-selection record (orbit and granule-overlap scans)	Aqua x VIIRS overlaps of at least 1 km2 over 120 days
+RecurDays	8	pairing and data-selection record (orbit and granule-overlap scans)	days of the overlap cycle
+TerraIn	118	pairing and data-selection record (orbit and granule-overlap scans)	Terra-VIIRS overlaps inside 30 min within 30 deg of the equator
+TerraAll	19,274	pairing and data-selection record (orbit and granule-overlap scans)	Terra-VIIRS overlaps within 30 deg of the equator
+EqShare	31	pairing and data-selection record (orbit and granule-overlap scans)	percent of Aqua x VIIRS overlaps inside 30 min near the equator
+PoleLo	10	pairing and data-selection record (orbit and granule-overlap scans)	percent poleward of 60 deg, lower end
+PoleHi	17	pairing and data-selection record (orbit and granule-overlap scans)	upper end
+OrbitErrLo	0.16	pairing and data-selection record (orbit and granule-overlap scans)	km
+OrbitErrHi	1.25	pairing and data-selection record (orbit and granule-overlap scans)	km
+DriftLo	42	pairing and data-selection record (orbit and granule-overlap scans)	percent of pairs still inside 30 min by 2025, lower
+DriftHi	57	pairing and data-selection record (orbit and granule-overlap scans)	upper
+PodsPeak	11	training compute record	pods concurrently, up to
+PodsTotal	27	training compute record	unique pods billed over the study period
+PodSpend	55	training compute record	USD, about
+GpuHours	60	training compute record	GPU-hours, about
+StoreObjects	30,088	training compute record	objects
+StoreTB	1.07	training compute record	terabytes (decimal)
+CpuBoxVcpu	4	training compute record	vCPU of the second CPU instance
+CpuBoxRam	8	training compute record	GB RAM
+CpuBoxDisk	150	training compute record	GB disk
+ModelMB	1.75	experiment B8 (scripts/exp/inference_cost.py)	checkpoint size MB in fp32
+InfMem	0.83	experiment B8 (scripts/exp/inference_cost.py)	GB peak process memory, batch 8
+ZhengRsq	0.98	cited paper (Zheng 2026, see references)	R2 of the view-zenith FRP fit, at least
+DetLimLo	3.7	cited paper (Sofiev 2026, see references)	MODIS detection limit MW, nadir
+DetLimHi	40	cited paper (Sofiev 2026, see references)	MODIS detection limit MW, upper
+DetLimV	0.5	cited paper (Sofiev 2026, see references)	VIIRS MW
+MaxPixArea	9.7	design tests (scripts/design/)	MODIS pixel area at the swath edge, km2
+CellsLow	7.5	design tests (scripts/design/)	fine cells per MODIS pixel below 10 deg view zenith
+CellsHigh	31.6	design tests (scripts/design/)	fine cells per MODIS pixel at 50 deg or more
+AgreePix	15,279	design tests (scripts/design/)	MODIS fire pixels in the agreement check
+AgreeTiles	3,519	design tests (scripts/design/)	tiles
+AgreePairs	665	design tests (scripts/design/)	scene pairs
+AgreeA	0.44	design tests (scripts/design/)	Spearman agreement, gap 0-5 min
+AgreeB	0.38	design tests (scripts/design/)	gap 5-15 min
+AgreeC	0.38	design tests (scripts/design/)	gap 15-30 min
+GapSlope	+0.06	design tests (scripts/design/)	even-spread amount error change per 10 min, log units
+GapMean	1.16	design tests (scripts/design/)	mean even-spread error
+CandTenMin	2,446	design tests (scripts/design/)	candidates a 10-minute window would leave
+ExNegCells	17	example tile of the architecture figure (record)	cells of the example tile with E_4 < 0
+ExCells	9,057	example tile of the architecture figure (record)	valid cells of the example tile
+ExNegMin	-0.017	example tile of the architecture figure (record)	minimum E_4 on the example tile (background about 0.25 W m-2 sr-1 um-1)
+DayBgBias	7.2	internal review record of the 4 um background bias; recorded, not independently reproduced	day 4 um background bias, percent
+NightBgBias	0.2	internal review record of the 4 um background bias; recorded, not independently reproduced	night 4 um background bias, percent
+LatentRuns	11	latent-consistency runs record	earlier latent-pull runs, none gave per-cell agreement
+WinSel	449	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	tiles per equal-size window arm
+WinFire	97	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	fire-bearing tiles per arm
+WinSteps	1,750	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	steps of the arms a-c
+WinAmt5	0.072	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	3 km amount gain over Even spread, window <=5 min
+WinAmt15	0.072	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	same, <=15 min
+WinAmt30	0.084	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	same, <=30 min
+WinRank5	0.008	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	block-ranking gain, <=5 min
+WinRank15	0.006	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	same, <=15 min
+WinRank30	0.017	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	same, <=30 min
+WinRankAll	0.032	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	same, all 2,340 tiles
+HotFlagLo	0.33	descriptive measures (results/raw/_descriptive/descriptive_measures.csv)	hottest-cell exact rate, pixels flagged in VIIRS, pair mean, low
+HotFlagHi	0.35	descriptive measures (results/raw/_descriptive/descriptive_measures.csv)	same, high
+TrajGap	4.2	pairing and data-selection record (orbit and granule-overlap scans)	VIIRS passes the overlap 4.2 min before MODIS (pair N0385, granule mid-times)
+TrajErrAqua	0.7	pairing and data-selection record (orbit and granule-overlap scans)	km, SGP4 vs recorded position, Aqua
+TrajErrNpp	0.2	pairing and data-selection record (orbit and granule-overlap scans)	km, S-NPP
+WinAll	2,340	experiment D, pairing-window ablation (scripts/exp/d_analysis.py)	all tiles of the small night list
+TrajGapEx	4.1	pairing and data-selection record (orbit and granule-overlap scans)	gap of the example tile

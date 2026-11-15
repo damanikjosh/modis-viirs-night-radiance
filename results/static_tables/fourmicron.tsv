@@ -1,0 +1,12 @@
+#source: 4 um-only output ablation record (small data list)
+#spec: lrrrrr
+#mid: 4
+Output	Seed	Block score	4 um val. loss	Amount (MODIS-bright)	Top-1 share
+Two bands (reference)	0	0.824	0.306	1.66	0.23
+Two bands (reference)	1	0.817	0.308	1.49	0.27
+Two bands (re-run)	0	0.824	0.304	1.77	0.23
+Two bands (re-run)	1	0.819	0.305	1.56	0.25
+4 um only	0	0.810	0.307	1.70	0.25
+4 um only	1	0.807	0.308	1.52	0.27
+4 um only, Poisson	0	0.742	--	1.07	0.31
+4 um only, Poisson	1	0.762	--	1.05	0.29

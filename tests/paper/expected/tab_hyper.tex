@@ -1,0 +1,30 @@
+\begin{tabular}{ll}
+\toprule
+Setting & Value \\
+\midrule
+Optimiser steps per epoch & 647 \\
+Epochs (cap) & 46 \\
+Batch size (tiles) & 32 \\
+Peak learning rate & 0.002 \\
+Weight decay & 0.0001 \\
+Warm-up steps & 100 \\
+Learning-rate schedule & constant after warm-up \\
+Fire tiles per batch & 0.25 \\
+Early stopping & none (fixed 46 epochs) \\
+Planck band constants & centre \\
+Gradient-norm clip & 1 \\
+Trunk precision & bf16 \\
+Tile size (cells) & 96$\times$96 \\
+Network width / latent channels & 32 / 16 \\
+Background bound $\delta_{\max}$ & 0.25 \\
+Max excess log-ratio $s_{\max}$ & 8 \\
+Loss term weights mv / vm / mm / vv & 1 / 0.5 / 0.1 / 0.1 \\
+Energy-consistency weight & 0.1 \\
+Hiding window / tiles hidden & 9$\times$9 / p=0.5 \\
+Median background window / dilation & 7$\times$7 / 2 \\
+MODIS view kernel / $T_{\mathrm{fire}}$ & tri / 800 K \\
+Minimum valid fraction per tile & 0.1 \\
+Day/night & night \\
+Hardware per run & one NVIDIA RTX 4090 \\
+\bottomrule
+\end{tabular}

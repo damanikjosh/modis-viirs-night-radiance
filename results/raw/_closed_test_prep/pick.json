@@ -1,0 +1,211 @@
+{
+ "candidate_block_for_closed_test_candidates_json": {
+  "chosen_at": "<time>",
+  "chosen_by": "pick rule applied by scripts/apply_pick_rule.py",
+  "const_file": "train_const_gammabw100-nf2-s0.json",
+  "name": "gammabw100-nf2-s0__best_val",
+  "sha256": "87251b2bb8f151d3e941922862f5f146d7b6e0dff02f519d337ab6e8e523dc26",
+  "why_this_candidate": {
+   "known_weaknesses": "block ranking does not beat the even spread (line 1 fails for every gamma-family run); selection of best-validation checkpoints and the setting was made on SELECT; 'delivers' at 3 km rests on a handful of scene pairs (e.g. 25 of 33 vs the 75 % line); the weight comparison is within seed noise",
+   "pre_stated_lines_met_on_SELECT": "seed 0 of weight 100 at its best-validation checkpoint (epoch 17) meets lines 2, 3, 4 of 2-5 on full SELECT; line 1 (block ranking vs even spread) is not met by any gamma-family run",
+   "seeds": "weight 100: 2 of 4 seeds meet all of lines 2-5, 13 of 16 line passes; other weight: 1 of 4 seeds, 11 of 16; decided at step 1 of the pick rule"
+  }
+ },
+ "candidate_epoch": 17,
+ "candidate_run": "gammabw100-nf2-s0",
+ "decided_at_step": 1,
+ "per_seed": {
+  "gammabw100-nf2-s0": {
+   "all_2_5": false,
+   "ckpt": "87251b2bb8f151d3",
+   "epoch": 17,
+   "lines": {
+    "2_energy": true,
+    "3_flags": true,
+    "4_hottest": true,
+    "5_amount3km": false
+   },
+   "passes": 3,
+   "seed": 0,
+   "setting": "100",
+   "stamped": true,
+   "values": {
+    "delivers_3km": false,
+    "energy_ratio_px": 0.9480920403158045,
+    "flag_ratio": 0.9331677352220469,
+    "hit_rate": 0.5591240354386968,
+    "top1": 0.3348338695008002
+   }
+  },
+  "gammabw100-nf2-s1": {
+   "all_2_5": true,
+   "ckpt": "615be10428f025cb",
+   "epoch": 15,
+   "lines": {
+    "2_energy": true,
+    "3_flags": true,
+    "4_hottest": true,
+    "5_amount3km": true
+   },
+   "passes": 4,
+   "seed": 1,
+   "setting": "100",
+   "stamped": true,
+   "values": {
+    "delivers_3km": true,
+    "energy_ratio_px": 1.0604746981047688,
+    "flag_ratio": 1.0218858044375818,
+    "hit_rate": 0.6163903972563589,
+    "top1": 0.34467045373262034
+   }
+  },
+  "gammabw100-nf2-s2": {
+   "all_2_5": false,
+   "ckpt": "38a1a0083547dd4b",
+   "epoch": 14,
+   "lines": {
+    "2_energy": true,
+    "3_flags": true,
+    "4_hottest": false,
+    "5_amount3km": false
+   },
+   "passes": 2,
+   "seed": 2,
+   "setting": "100",
+   "stamped": true,
+   "values": {
+    "delivers_3km": false,
+    "energy_ratio_px": 0.9979325916780895,
+    "flag_ratio": 0.9893144461973974,
+    "hit_rate": 0.6011003143755359,
+    "top1": 0.3170226876260658
+   }
+  },
+  "gammabw100-nf2-s3": {
+   "all_2_5": true,
+   "ckpt": "37874187108e16e1",
+   "epoch": 18,
+   "lines": {
+    "2_energy": true,
+    "3_flags": true,
+    "4_hottest": true,
+    "5_amount3km": true
+   },
+   "passes": 4,
+   "seed": 3,
+   "setting": "100",
+   "stamped": true,
+   "values": {
+    "delivers_3km": true,
+    "energy_ratio_px": 0.9914073289526762,
+    "flag_ratio": 0.9541136584874627,
+    "hit_rate": 0.6119248356673336,
+    "top1": 0.33944350631492876
+   }
+  },
+  "gammabw1000-nf2-s0": {
+   "all_2_5": false,
+   "ckpt": "ab2a276d8368a91e",
+   "epoch": 18,
+   "lines": {
+    "2_energy": true,
+    "3_flags": true,
+    "4_hottest": true,
+    "5_amount3km": false
+   },
+   "passes": 3,
+   "seed": 0,
+   "setting": "1000",
+   "stamped": true,
+   "values": {
+    "delivers_3km": false,
+    "energy_ratio_px": 0.9700072208641847,
+    "flag_ratio": 0.9997538406453851,
+    "hit_rate": 0.6306087453558159,
+    "top1": 0.34917500112127153
+   }
+  },
+  "gammabw1000-nf2-s1": {
+   "all_2_5": false,
+   "ckpt": "5b63b74f7184341d",
+   "epoch": 12,
+   "lines": {
+    "2_energy": true,
+    "3_flags": true,
+    "4_hottest": false,
+    "5_amount3km": false
+   },
+   "passes": 2,
+   "seed": 1,
+   "setting": "1000",
+   "stamped": true,
+   "values": {
+    "delivers_3km": false,
+    "energy_ratio_px": 0.9661169052157663,
+    "flag_ratio": 0.9785393799022076,
+    "hit_rate": 0.5812374964275507,
+    "top1": 0.31944577680193903
+   }
+  },
+  "gammabw1000-nf2-s2": {
+   "all_2_5": true,
+   "ckpt": "f307b546a4a88f74",
+   "epoch": 16,
+   "lines": {
+    "2_energy": true,
+    "3_flags": true,
+    "4_hottest": true,
+    "5_amount3km": true
+   },
+   "passes": 4,
+   "seed": 2,
+   "setting": "1000",
+   "stamped": true,
+   "values": {
+    "delivers_3km": true,
+    "energy_ratio_px": 1.0280698654920046,
+    "flag_ratio": 1.0208899779575487,
+    "hit_rate": 0.6200342955130037,
+    "top1": 0.36292591134994223
+   }
+  },
+  "gammabw1000-nf2-s3": {
+   "all_2_5": false,
+   "ckpt": "6591acba7f376061",
+   "epoch": 12,
+   "lines": {
+    "2_energy": true,
+    "3_flags": true,
+    "4_hottest": false,
+    "5_amount3km": false
+   },
+   "passes": 2,
+   "seed": 3,
+   "setting": "1000",
+   "stamped": true,
+   "values": {
+    "delivers_3km": false,
+    "energy_ratio_px": 0.9961207715491013,
+    "flag_ratio": 0.9182974723909906,
+    "hit_rate": 0.5282580737353529,
+    "top1": 0.321654849349068
+   }
+  }
+ },
+ "totals": {
+  "100": {
+   "line_passes_of_16": 13,
+   "seeds_meeting_all_2_5": 2
+  },
+  "1000": {
+   "line_passes_of_16": 11,
+   "seeds_meeting_all_2_5": 1
+  }
+ },
+ "why_this_candidate": {
+  "known_weaknesses": "block ranking does not beat the even spread (line 1 fails for every gamma-family run); selection of best-validation checkpoints and the setting was made on SELECT; 'delivers' at 3 km rests on a handful of scene pairs (e.g. 25 of 33 vs the 75 % line); the weight comparison is within seed noise",
+  "pre_stated_lines_met_on_SELECT": "seed 0 of weight 100 at its best-validation checkpoint (epoch 17) meets lines 2, 3, 4 of 2-5 on full SELECT; line 1 (block ranking vs even spread) is not met by any gamma-family run",
+  "seeds": "weight 100: 2 of 4 seeds meet all of lines 2-5, 13 of 16 line passes; other weight: 1 of 4 seeds, 11 of 16; decided at step 1 of the pick rule"
+ },
+ "winner_weight": "100"
+}

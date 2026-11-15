@@ -1,0 +1,5 @@
+{
+ "verdict_night": "FAIL",
+ "verdict_day": "EXPLORATORY_NO_VERDICT",
+ "note": "reduced record: only the two line verdicts that the paper tables read; host, path, lock and approval fields of the original run record removed"
+}

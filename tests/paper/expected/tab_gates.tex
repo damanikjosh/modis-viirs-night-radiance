@@ -1,0 +1,13 @@
+\begin{tabular}{lllll}
+\toprule
+Gate & Group-share & Gamma & Gamma-BW100 & Gamma-BW1000 \\
+\midrule
+Path parity (train vs evaluation path) & 0.0 & 0.0 & 0.0 & 1.3e-7 (rel.) \\
+Determinism (2 x 40 steps), loss difference & 0.0 & 0.0 & 0.0 & 0.0 \\
+Fire share of loss / gradient at init (%) & 21.5 / 23.4 & 5.4 / -0.3 & 27.9 / 7.9 & 31.3 / 11.4 \\
+Memorise 8 tiles: (i) loss fall & 11.6x (orig. gate) & 11.5x & 53x & 60x \\
+(ii) error at VIIRS fire cells & -- & 0.054 & 0.035 & 0.023 \\
+(iii) energy at MODIS-bright cells (0.9--1.1) & 0.997 (orig. gate) & 1.018 & 0.997 & 0.996 \\
+Verdict & fails revised (iii) on wave-1 data (1.37) & PASS & PASS & PASS \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,12 @@
+\begin{tabular}{lp{5.2cm}rrll}
+\toprule
+Name & Loss & BW & Bound & Run id (prefix) & Seeds \\
+\midrule
+Group-share & group-share (Huber on ln radiance, fixed shares for background, near-fire and fire-level cells from the target) & 0 & 0.25 & \texttt{oldloss-nf2} & 0,1 \\
+Gamma & Gamma deviance & 0 & 0.25 & \texttt{gamma-nf2} & 0,1 \\
+Gamma-BW100 & Gamma deviance & 100 & 0.25 & \texttt{gammabw100-nf2} & 0,1,2,3 \\
+Gamma-BW1000 & Gamma deviance & 1000 & 0.25 & \texttt{gammabw1000-nf2} & 0,1,2,3 \\
+Gamma-BW100-B0.5 & Gamma deviance & 100 & 0.5 & \texttt{gammabw100-d05-nf2} & 0,1 \\
+Gamma-BW1000-B0.5 & Gamma deviance & 1000 & 0.5 & \texttt{gammabw1000-d05-nf2} & 0,1 \\
+\bottomrule
+\end{tabular}

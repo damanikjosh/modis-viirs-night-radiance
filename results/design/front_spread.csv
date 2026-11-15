@@ -1,0 +1,8 @@
+fire_type,rate_lo_m_per_h,rate_hi_m_per_h,source_key,fetched,note
+Peat smouldering,0.01,0.05,literature compilation,literature compilation,rate converted to m/h
+Amazon understorey,8.4,21,literature compilation,literature compilation,0.14-0.35 m/min
+Amazon clearing/pasture fronts,120,360,csiszar2008shortterm,full text,measured from Landsat/ASTER pairs 30 min apart
+Forest surface fire,0,300,NRCan web page (not peer reviewed),web page,"< 0.3 km/h (upper bound)"
+Wheat/crop,2400,10200,literature compilation,literature compilation,
+Crown fire,0,6000,NRCan web page (not peer reviewed),web page,up to 6 km/h
+Grass,0,12000,literature compilation,literature compilation,up to 12 km/h

@@ -1,0 +1,14 @@
+#source: dataset and training record (counts from the data pipeline)
+#spec: lrrrrrr
+#mid: 9
+Region	Train tiles	Train fire px	Select tiles	Select fire px	Report tiles	Report fire px
+Africa north	126	529	95	33	135	151
+Africa south	1,210	1,062	205	18	22	0
+Australia	904	10,831	1,120	4,854	64	476
+Boreal Eurasia	224	2,573	585	313	189	321
+Central America / Mexico	996	1,156	46	12	324	9
+Mediterranean	574	1,901	499	168	23	270
+North America	302	1,584	141	475	30	497
+South Asia	3,080	1,096	51	4	86	5
+Southeast Asia	18,066	3,656	657	861	3,160	580
+All	25,482	24,388	3,399	6,738	4,033	2,309

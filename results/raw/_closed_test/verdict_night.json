@@ -1,0 +1,150 @@
+{
+ "all_blocks_decides": {
+  "line1_fire_block_score": {
+   "comparator": "excess_only",
+   "comparator_auc": 0.8515071967795519,
+   "diff": -0.11048394594809183,
+   "diff_vs_fire_off": 0.06645802343423204,
+   "fire_off_rule": "model minus model-with-fire-off point difference must be > 0",
+   "model_auc": 0.7410232508314601,
+   "n_pairs": 4,
+   "pass_if": "diff >= 0.05 AND range above 0 AND positive in >= 75% of pairs AND diff_vs_fire_off > 0",
+   "range": [
+    -0.1560521197978868,
+    -0.0601299930011614
+   ],
+   "share_pairs_positive": 0.0,
+   "status": "FAIL"
+  },
+  "line2_amount": {
+   "comparator": "EVERY simple method (spread evenly, Planck copy, raw copy, excess-only/true-background + spread, constant)",
+   "pass_if": "3 km pooled ratio of sums in [0.8, 1.25] AND the amount decision 'delivers' at pixel AND at 3 km",
+   "per_scale": {
+    "block3": {
+     "delivers": false,
+     "fails": [
+      "uniform",
+      "copy_planck",
+      "excess_only",
+      "oracle_uniform"
+     ],
+     "n_pairs": 3,
+     "ratio_of_sums": 0.9998210346964485,
+     "testable": true
+    },
+    "pixel": {
+     "delivers": true,
+     "fails": [],
+     "n_pairs": 4,
+     "ratio_of_sums": 0.9111985990397156,
+     "testable": true
+    }
+   },
+   "status": "FAIL"
+  },
+  "line3_hottest_cell_share": {
+   "n_pixels": 337.0,
+   "pass_if": "top-1 share >= 0.33 with >= 30 MODIS-selected pixels",
+   "reference_measured": 0.4890906119239544,
+   "reference_spread_evenly": 0.14094748741467678,
+   "status": "PASS",
+   "top1_share": 0.3585476149260467
+  },
+  "line4_flag_count": {
+   "block_hit_rate": 0.39268611232041795,
+   "false_alarm_share_reported_no_line": 0.11698482623592756,
+   "flag_count_ratio": 0.7043768545994066,
+   "flagged_cells_measured": 10784.0,
+   "pass_if": "flag ratio in [0.5, 2.0] AND hit rate >= 0.5 with >= 30 measured flagged cells",
+   "status": "FAIL"
+  }
+ },
+ "amendment_sha256": "105de4287628887db152311f80a3e9bad0c8bb203090e153b25e2b4fa9749c10",
+ "ckpt_epoch": 17,
+ "constants": {
+  "auc_margin_line_1": 0.05,
+  "auc_share_positive_pairs_line_1": 0.75,
+  "flag_ratio_hi_line_4": 2.0,
+  "flag_ratio_lo_line_4": 0.5,
+  "hit_rate_line_4": 0.5,
+  "min_flagged_measured_line_4": 30,
+  "min_pairs_lines_1_2": 3,
+  "min_pixels_line_3": 30,
+  "ratio_hi_line_2": 1.25,
+  "ratio_lo_line_2": 0.8,
+  "top1_share_line_3": 0.33
+ },
+ "exploratory": false,
+ "hole_free_shown_next_to_it": {
+  "line1_fire_block_score": {
+   "comparator": "excess_only",
+   "comparator_auc": 0.8496703604849603,
+   "diff": -0.11151393421871275,
+   "diff_vs_fire_off": 0.06620465841594333,
+   "fire_off_rule": "model minus model-with-fire-off point difference must be > 0",
+   "model_auc": 0.7381564262662473,
+   "n_pairs": 4,
+   "pass_if": "diff >= 0.05 AND range above 0 AND positive in >= 75% of pairs AND diff_vs_fire_off > 0",
+   "range": [
+    -0.1571739179542858,
+    -0.06050266929715323
+   ],
+   "share_pairs_positive": 0.0,
+   "status": "FAIL"
+  },
+  "line2_amount": {
+   "comparator": "EVERY simple method (spread evenly, Planck copy, raw copy, excess-only/true-background + spread, constant)",
+   "pass_if": "3 km pooled ratio of sums in [0.8, 1.25] AND the amount decision 'delivers' at pixel AND at 3 km",
+   "per_scale": {
+    "block3": {
+     "delivers": false,
+     "fails": [
+      "uniform",
+      "copy_planck",
+      "excess_only",
+      "oracle_uniform"
+     ],
+     "n_pairs": 3,
+     "ratio_of_sums": 0.9989424067951729,
+     "testable": true
+    },
+    "pixel": {
+     "delivers": true,
+     "fails": [],
+     "n_pairs": 3,
+     "ratio_of_sums": 0.871533161680058,
+     "testable": true
+    }
+   },
+   "status": "FAIL"
+  },
+  "line3_hottest_cell_share": {
+   "n_pixels": 319.0,
+   "pass_if": "top-1 share >= 0.33 with >= 30 MODIS-selected pixels",
+   "reference_measured": 0.4895999761934899,
+   "reference_spread_evenly": 0.1416558055905625,
+   "status": "PASS",
+   "top1_share": 0.35321230177408475
+  },
+  "line4_flag_count": {
+   "block_hit_rate": 0.38814489571899013,
+   "false_alarm_share_reported_no_line": 0.11864406779661017,
+   "flag_count_ratio": 0.7043768545994066,
+   "flagged_cells_measured": 10784.0,
+   "pass_if": "flag ratio in [0.5, 2.0] AND hit rate >= 0.5 with >= 30 measured flagged cells",
+   "status": "FAIL"
+  }
+ },
+ "lines": {
+  "line1_fire_block_score": "FAIL",
+  "line2_amount": "FAIL",
+  "line3_hottest_cell_share": "PASS",
+  "line4_flag_count": "FAIL"
+ },
+ "n_tiles": 697,
+ "overall": "FAIL",
+ "overall_rule": "FAIL if any testable line fails; PASS only if all four are testable and pass; NOT_DECIDABLE only if no testable line fails and at least one is not testable",
+ "reader_sha256": "d26d318ac00ca785ebf688bae5a0769ee4d60bbdbfd326d6358aab5d921a50f6",
+ "run": "gammabw100-nf2-s0__best_val",
+ "set": "val2all"
+}

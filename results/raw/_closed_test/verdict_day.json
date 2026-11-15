@@ -1,0 +1,122 @@
+{
+ "all_blocks_decides": {
+  "line1_fire_block_score": {
+   "status": "NOT_TESTABLE",
+   "why": "no simple-method AUC in the score file"
+  },
+  "line2_amount": {
+   "comparator": "EVERY simple method (spread evenly, Planck copy, raw copy, excess-only/true-background + spread, constant)",
+   "pass_if": "3 km pooled ratio of sums in [0.8, 1.25] AND the amount decision 'delivers' at pixel AND at 3 km",
+   "per_scale": {
+    "block3": {
+     "delivers": null,
+     "fails": null,
+     "n_pairs": null,
+     "ratio_of_sums": null,
+     "testable": null
+    },
+    "pixel": {
+     "delivers": null,
+     "fails": null,
+     "n_pairs": null,
+     "ratio_of_sums": null,
+     "testable": null
+    }
+   },
+   "status": "NOT_TESTABLE",
+   "why": "fewer than 3 testable pairs at pixel or 3 km"
+  },
+  "line3_hottest_cell_share": {
+   "n_pixels": 0,
+   "pass_if": "top-1 share >= 0.33 with >= 30 MODIS-selected pixels",
+   "reference_measured": null,
+   "reference_spread_evenly": null,
+   "status": "NOT_TESTABLE",
+   "top1_share": null,
+   "why": "fewer than 30 pixels"
+  },
+  "line4_flag_count": {
+   "block_hit_rate": null,
+   "false_alarm_share_reported_no_line": null,
+   "flag_count_ratio": null,
+   "flagged_cells_measured": 0,
+   "pass_if": "flag ratio in [0.5, 2.0] AND hit rate >= 0.5 with >= 30 measured flagged cells",
+   "status": "NOT_TESTABLE",
+   "why": "fewer than 30 measured flagged cells"
+  }
+ },
+ "amendment_sha256": "105de4287628887db152311f80a3e9bad0c8bb203090e153b25e2b4fa9749c10",
+ "ckpt_epoch": 17,
+ "constants": {
+  "auc_margin_line_1": 0.05,
+  "auc_share_positive_pairs_line_1": 0.75,
+  "flag_ratio_hi_line_4": 2.0,
+  "flag_ratio_lo_line_4": 0.5,
+  "hit_rate_line_4": 0.5,
+  "min_flagged_measured_line_4": 30,
+  "min_pairs_lines_1_2": 3,
+  "min_pixels_line_3": 30,
+  "ratio_hi_line_2": 1.25,
+  "ratio_lo_line_2": 0.8,
+  "top1_share_line_3": 0.33
+ },
+ "exploratory": true,
+ "hole_free_shown_next_to_it": {
+  "line1_fire_block_score": {
+   "status": "NOT_TESTABLE",
+   "why": "no simple-method AUC in the score file"
+  },
+  "line2_amount": {
+   "comparator": "EVERY simple method (spread evenly, Planck copy, raw copy, excess-only/true-background + spread, constant)",
+   "pass_if": "3 km pooled ratio of sums in [0.8, 1.25] AND the amount decision 'delivers' at pixel AND at 3 km",
+   "per_scale": {
+    "block3": {
+     "delivers": null,
+     "fails": null,
+     "n_pairs": null,
+     "ratio_of_sums": null,
+     "testable": null
+    },
+    "pixel": {
+     "delivers": null,
+     "fails": null,
+     "n_pairs": null,
+     "ratio_of_sums": null,
+     "testable": null
+    }
+   },
+   "status": "NOT_TESTABLE",
+   "why": "fewer than 3 testable pairs at pixel or 3 km"
+  },
+  "line3_hottest_cell_share": {
+   "n_pixels": 0,
+   "pass_if": "top-1 share >= 0.33 with >= 30 MODIS-selected pixels",
+   "reference_measured": null,
+   "reference_spread_evenly": null,
+   "status": "NOT_TESTABLE",
+   "top1_share": null,
+   "why": "fewer than 30 pixels"
+  },
+  "line4_flag_count": {
+   "block_hit_rate": null,
+   "false_alarm_share_reported_no_line": null,
+   "flag_count_ratio": null,
+   "flagged_cells_measured": 0,
+   "pass_if": "flag ratio in [0.5, 2.0] AND hit rate >= 0.5 with >= 30 measured flagged cells",
+   "status": "NOT_TESTABLE",
+   "why": "fewer than 30 measured flagged cells"
+  }
+ },
+ "lines": {
+  "line1_fire_block_score": "NOT_TESTABLE",
+  "line2_amount": "NOT_TESTABLE",
+  "line3_hottest_cell_share": "NOT_TESTABLE",
+  "line4_flag_count": "NOT_TESTABLE"
+ },
+ "n_tiles": 802,
+ "overall": "EXPLORATORY_NO_VERDICT",
+ "overall_rule": "FAIL if any testable line fails; PASS only if all four are testable and pass; NOT_DECIDABLE only if no testable line fails and at least one is not testable",
+ "reader_sha256": "d26d318ac00ca785ebf688bae5a0769ee4d60bbdbfd326d6358aab5d921a50f6",
+ "run": "gammabw100-nf2-s0__best_val",
+ "set": "val2all"
+}
