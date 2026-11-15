@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "Learning VIIRS Night Radiance from MODIS without Fire Products: Near-Simultaneous Pairs, a Shared Latent Scene, and a Pre-Stated Evaluation"
+type: software
+authors:
+  - family-names: Damanik
+    given-names: Joshua Julian
+    email: joshuajdmk@gmail.com
+repository-code: "https://github.com/damanikjosh/modis-viirs-night-radiance"
+keywords:
+  - active fire
+  - MODIS
+  - VIIRS
+  - harmonisation
+  - downscaling
+license: Apache-2.0

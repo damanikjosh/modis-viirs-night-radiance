@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+/data/
+/runs/
+/work/
+*.npz
+*.pt
+!weights/*.pt
+.env
+.edl_token
